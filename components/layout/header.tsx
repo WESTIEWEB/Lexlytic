@@ -1,31 +1,139 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { MobileMenu } from "@/components/layout/mobile-menu";
 
+interface DropdownSection {
+  title: string;
+  items: string[];
+}
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  // Ref for dropdown items to detect clicks outside
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    // Close dropdown when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setActiveDropdown(null);
       }
     };
 
-    // Set initial state explicitly
-    setIsScrolled(window.scrollY > 10);
-
-    window.addEventListener("scroll", handleScroll);
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const navItems: { title: string; dropdownData?: DropdownSection[] }[] = [
+    {
+      title: "Products",
+      dropdownData: [
+        {
+          title: "Legal Research",
+          items: [
+            "vLex Legal Research",
+            "Docket Alarm",
+            "Fastcase Legal Research",
+          ],
+        },
+        {
+          title: "Legal AI",
+          items: ["Vincent AI"],
+        },
+        {
+          title: "Legal Analytics",
+          items: ["vLex Analytics", "Docket Alarm Analytics"],
+        },
+        {
+          title: "Tools",
+          items: [
+            "Chrome Extension",
+            "Word Plugin",
+            "vLex Mobile",
+            "vLex Cloud",
+          ],
+        },
+        {
+          title: "Practice Management",
+          items: ["NextChapter", "Quolaw", "Eunomia"],
+        },
+        {
+          title: "Enterprise",
+          items: [
+            "Legal Data APIs",
+            "Iceberg AI",
+            "Custom Solutions",
+            "All Integrations",
+          ],
+        },
+      ],
+    },
+    {
+      title: "Coverage",
+      dropdownData: [
+        {
+          title: "Regions",
+          items: ["North America", "Europe", "Asia", "Latin America", "Africa"],
+        },
+        {
+          title: "Jurisdictions",
+          items: ["US Federal", "UK Courts", "EU Regulations"],
+        },
+      ],
+    },
+    {
+      title: "Customers",
+      dropdownData: [
+        {
+          title: "Industries",
+          items: ["Law Firms", "Corporate Legal", "Academia"],
+        },
+        {
+          title: "Success Stories",
+          items: ["Case Studies", "Testimonials", "Client Reviews"],
+        },
+      ],
+    },
+    {
+      title: "Solutions",
+      dropdownData: [
+        {
+          title: "By Use Case",
+          items: ["Compliance", "Due Diligence", "Litigation"],
+        },
+        { title: "By Role", items: ["Lawyers", "Researchers", "Students"] },
+      ],
+    },
+    {
+      title: "Company",
+      dropdownData: [
+        { title: "Who We Are", items: ["About Us", "Leadership", "Careers"] },
+        { title: "Media", items: ["Press Releases", "In the News"] },
+      ],
+    },
+    {
+      title: "Resources",
+      dropdownData: [
+        { title: "Knowledge Base", items: ["Help Center", "Docs", "Training"] },
+        { title: "Media", items: ["Blog", "Webinars", "Events"] },
+      ],
+    },
+  ];
 
   return (
     <header
@@ -46,28 +154,20 @@ export function Header() {
               </div>
             </div>
           </Link>
-          <div className="hidden md:flex items-center space-x-1">
-            <div className="relative group">
-              <button
-                className={`flex items-center px-3 py-2 text-sm font-medium ${
-                  isScrolled
-                    ? "text-gray-700 hover:text-blue-600"
-                    : "text-white hover:text-gray-200"
-                }`}
-              >
-                English <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-            </div>
-          </div>
         </div>
 
         <nav className="hidden md:flex items-center space-x-1">
-          <NavItem title="Products" isScrolled={isScrolled} />
-          <NavItem title="Coverage" isScrolled={isScrolled} />
-          <NavItem title="Customers" isScrolled={isScrolled} />
-          <NavItem title="Solutions" isScrolled={isScrolled} />
-          <NavItem title="Company" isScrolled={isScrolled} />
-          <NavItem title="Resources" isScrolled={isScrolled} />
+          {navItems.map(({ title, dropdownData }) => (
+            <NavItem
+              key={title}
+              title={title}
+              dropdownData={dropdownData}
+              isScrolled={isScrolled}
+              activeDropdown={activeDropdown}
+              setActiveDropdown={setActiveDropdown}
+              dropdownRef={dropdownRef}
+            />
+          ))}
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
@@ -89,7 +189,6 @@ export function Header() {
           </Link>
         </div>
 
-        {/* Mobile Menu */}
         <MobileMenu isScrolled={isScrolled} />
       </div>
     </header>
@@ -98,44 +197,65 @@ export function Header() {
 
 function NavItem({
   title,
+  dropdownData,
   isScrolled,
+  activeDropdown,
+  setActiveDropdown,
+  dropdownRef,
 }: {
   title: string;
+  dropdownData?: DropdownSection[];
   isScrolled: boolean;
+  activeDropdown: string | null;
+  setActiveDropdown: (val: string | null) => void;
+  dropdownRef: React.RefObject<HTMLDivElement | null>; // Update ref type here
 }) {
+  const isActive = activeDropdown === title;
+  const toggleDropdown = () => setActiveDropdown(isActive ? null : title);
+
   return (
     <div className="relative group">
       <button
+        onClick={dropdownData ? toggleDropdown : undefined}
         className={`flex items-center px-3 py-2 text-sm font-medium transition-colors ${
           isScrolled
             ? "text-gray-700 hover:text-blue-600"
             : "text-white hover:text-gray-200"
         }`}
       >
-        {title} <ChevronDown className="ml-1 h-4 w-4" />
+        {title}
+        <ChevronDown className="ml-1 h-4 w-4" />
       </button>
-      <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-        <div className="py-1">
-          <Link
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            Option 1
-          </Link>
-          <Link
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            Option 2
-          </Link>
-          <Link
-            href="#"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            Option 3
-          </Link>
+
+      {dropdownData && isActive && (
+        <div
+          ref={dropdownRef}
+          className="absolute left-1/2 top-full z-50 mt-2 w-[700px] -translate-x-1/2 rounded-lg bg-white p-6 shadow-xl"
+        >
+          <div className="absolute -top-2 left-1/2 -translate-x-1/2 h-4 w-4 rotate-45 bg-white shadow-md" />
+          <div className="grid grid-cols-3 gap-6">
+            {dropdownData.map((section) => (
+              <div key={section.title}>
+                <h4 className="mb-2 text-sm font-semibold text-blue-600">
+                  {section.title}
+                </h4>
+                <ul className="space-y-1">
+                  {section.items.map((item) => (
+                    <li key={item}>
+                      <a
+                        href="#"
+                        className="text-sm text-gray-700 hover:text-blue-600"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

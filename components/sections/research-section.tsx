@@ -7,7 +7,7 @@ export function ResearchSection() {
     <section className="py-16 bg-[#f8f9fa]">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Faster research, smarter workflows</h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+        <p className="text-base text-gray-600 max-w-3xl mx-auto mb-8">
           Vincent can automate drafting, answer research questions, build arguments and compare points of law from
           multiple jurisdictions.
         </p>
