@@ -47,10 +47,10 @@ interface BenefitCardProps {
 
 function BenefitCard({ icon, title, description }: BenefitCardProps) {
     return (
-      <div className="flex flex-col items-start bg-white shadow-md rounded-xl p-6 transform transition duration-300 hover:-translate-y-2 cursor-pointer">
+      <div className="flex flex-col items-start shadow rounded-xl p-6 transform transition duration-300 hover:-translate-y-2 cursor-pointer">
         <div className="mb-4 p-2 rounded-full bg-blue-50">{icon}</div>
         <h3 className="text-[18px] font-regular mb-3 text-blue-500">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+        <p className="text-gray-600 text-base">{description}</p>
       </div>
     )
   }
