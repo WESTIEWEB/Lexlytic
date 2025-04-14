@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-2 text-white mb-8">
-              <div className="text-4xl font-extrabold tracking-tight">vLex</div>
+              <div className="text-4xl font-extrabold tracking-tight">Lexlytic</div>
             </div>
           </div>
 

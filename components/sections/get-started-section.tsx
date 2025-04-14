@@ -14,15 +14,15 @@ export function GetStartedSection() {
             icon={<Globe className="w-6 h-6 text-blue-500" />}
             title="Free trial"
             description="Sign-up for a free trial of vLex and experience all the features and benefits of AI-powered legal research technology."
-            linkText="Free trial"
+            linkText="Coming Soon"
             linkHref="/free-trial"
           />
           <GetStartedCard
             icon={<User className="w-6 h-6 text-blue-500" />}
-            title="Book a demo"
+            title="Register Interest"
             description="Suitable for individuals and teams, request an online demo to discover how vLex can support your firm."
-            linkText="Book a demo"
-            linkHref="/book-demo"
+            linkText="Register interest"
+            linkHref="/register-interest"
           />
           <GetStartedCard
             icon={<Phone className="w-6 h-6 text-blue-500" />}

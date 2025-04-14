@@ -101,14 +101,14 @@ export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
                 className="block w-full py-2 text-center text-gray-700 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
-                Sign In
+                Contact
               </Link>
               <Link
                 href="/get-started"
                 className="block w-full py-2 text-center bg-blue-500 hover:bg-blue-600 text-white rounded-md"
                 onClick={() => setIsOpen(false)}
               >
-                Get Started
+                Register Interest
               </Link>
             </div>
           </div>

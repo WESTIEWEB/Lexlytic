@@ -17,6 +17,9 @@ import { WorkflowSection } from "@/components/sections/workflow-section";
 import { CertSection } from "@/components/sections/cert-section";
 import { ReducingTimeSection } from "@/components/sections/reducing-time-section";
 import { GetStartedSection } from "@/components/sections/get-started-section";
+import { Benefits } from "@/components/sections/benefits";
+import { Products } from "@/components/sections/products";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,14 +32,16 @@ export default function Home() {
         <HeroSection />
         <FreeTimeSection />
         <PreciseAISection />
-        <AwardSection />
+        <Products />
+        {/* <AwardSection /> */}
         <StatsSection />
-        <ResearchSection />
+        {/* <ResearchSection /> */}
+        <Benefits />
         <RevolutionarySection />
         <PartnersSection />
         <WorkflowSection />
-        <CertSection />
-        <ReducingTimeSection />
+        {/* <CertSection /> */}
+        {/* <ReducingTimeSection /> */}
         <GetStartedSection />
       </main>
 

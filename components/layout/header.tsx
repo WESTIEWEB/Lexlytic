@@ -45,11 +45,7 @@ export function Header() {
       dropdownData: [
         {
           title: "Legal Research",
-          items: [
-            "vLex Legal Research",
-            "Docket Alarm",
-            "Fastcase Legal Research",
-          ],
+          items: ["Legal Review", "Docket Alarm", "Fastcase Legal Research"],
         },
         {
           title: "Legal AI",
@@ -57,16 +53,11 @@ export function Header() {
         },
         {
           title: "Legal Analytics",
-          items: ["vLex Analytics", "Docket Alarm Analytics"],
+          items: ["Compliance Report", "Docket Alarm Analytics"],
         },
         {
           title: "Tools",
-          items: [
-            "Chrome Extension",
-            "Word Plugin",
-            "vLex Mobile",
-            "vLex Cloud",
-          ],
+          items: ["Chrome Extension", "Word Plugin", "Share Point"],
         },
         {
           title: "Practice Management",
@@ -75,8 +66,8 @@ export function Header() {
         {
           title: "Enterprise",
           items: [
+            "Market Place for Layers",
             "Legal Data APIs",
-            "Iceberg AI",
             "Custom Solutions",
             "All Integrations",
           ],
@@ -87,38 +78,64 @@ export function Header() {
       title: "Coverage",
       dropdownData: [
         {
-          title: "Regions",
-          items: ["North America", "Europe", "Asia", "Latin America", "Africa"],
+          title: "Northern Africa",
+          items: [
+            "Algeria",
+            "Egypt",
+            "Libya",
+            "Morocco",
+            "Tunisia",
+          ]
         },
         {
-          title: "Jurisdictions",
-          items: ["US Federal", "UK Courts", "EU Regulations"],
+          title: "Western Africa",
+          items: [
+            "Côte d'Ivoire",
+            "Ghana",
+            "Guinea",
+            "Mali",
+            "Nigeria",
+            "Senegal",
+            "Togo"
+          ]
         },
-      ],
+        {
+          title: "Central Africa",
+          items: [
+            "Angola",
+            "Cameroon",
+            "Central African Republic",
+            "Republic of the Congo",
+            "Equatorial Guinea",
+            "Gabon",
+          ]
+        },
+        {
+          title: "Eastern Africa",
+          items: [
+            "Ethiopia",
+            "Kenya",
+            "Malawi",
+            "Rwanda",
+            "South Sudan",
+            "Tanzania",
+            "Uganda",
+            "Zambia",
+          ]
+        },
+        {
+          title: "Southern Africa",
+          items: [
+            "Botswana",
+            "Namibia",
+            "South Africa"
+          ]
+        }
+      ]
     },
-    {
-      title: "Customers",
-      dropdownData: [
-        {
-          title: "Industries",
-          items: ["Law Firms", "Corporate Legal", "Academia"],
-        },
-        {
-          title: "Success Stories",
-          items: ["Case Studies", "Testimonials", "Client Reviews"],
-        },
-      ],
-    },
-    {
-      title: "Solutions",
-      dropdownData: [
-        {
-          title: "By Use Case",
-          items: ["Compliance", "Due Diligence", "Litigation"],
-        },
-        { title: "By Role", items: ["Lawyers", "Researchers", "Students"] },
-      ],
-    },
+    
+  
+   
     {
       title: "Company",
       dropdownData: [
@@ -150,7 +167,7 @@ export function Header() {
                   isScrolled ? "text-blue-600" : "text-white"
                 }`}
               >
-                vLex
+                Lexlytic
               </div>
             </div>
           </Link>
@@ -179,13 +196,13 @@ export function Header() {
                 : "text-white hover:text-gray-200"
             }`}
           >
-            Sign In
+            Contact
           </Link>
           <Link
             href="/get-started"
             className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
           >
-            Get Started
+            Register Interest
           </Link>
         </div>
 

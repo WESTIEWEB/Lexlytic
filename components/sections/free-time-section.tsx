@@ -5,9 +5,12 @@ export function FreeTimeSection() {
   return (
     <section className="py-16 bg-[#f8f9fa]">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row items-start">
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Free time to focus on your clients</h2>
+        <div className="flex flex-col md:flex-row-reverse items-start">
+          {/* Text / Feature Content on the right */}
+          <div className="md:w-1/2 mb-8 md:mb-0 md:pl-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Free time to focus on your clients
+            </h2>
             <ul className="space-y-6">
               <FeatureItem
                 title="Over 20 AI workflows"
@@ -29,9 +32,14 @@ export function FreeTimeSection() {
               Explore Vincent <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
-          <div className="md:w-1/2 md:pl-8">
+
+          {/* Video on the left */}
+          <div className="md:w-1/2">
             <div className="relative aspect-video bg-black rounded-lg overflow-hidden">
-              <video className="absolute inset-0 w-full h-full object-cover" controls>
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                controls
+              >
                 <source src="https://path-to-your-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -43,7 +51,7 @@ export function FreeTimeSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function FeatureItem({ title, description }: { title: string; description: string }) {
