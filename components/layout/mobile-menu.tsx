@@ -1,29 +1,33 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 
-export function MobileMenu() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
+export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
     if (isOpen) {
-      setActiveSubmenu(null)
+      setActiveSubmenu(null);
     }
-  }
+  };
 
   const toggleSubmenu = (menu: string) => {
-    setActiveSubmenu(activeSubmenu === menu ? null : menu)
-  }
+    setActiveSubmenu(activeSubmenu === menu ? null : menu);
+  };
 
   return (
     <div className="md:hidden">
       <button
         onClick={toggleMenu}
-        className="p-2 text-gray-600 hover:text-blue-600 focus:outline-none"
+        className={`p-2 focus:outline-none ${
+          isScrolled
+            ? "text-gray-600 hover:text-blue-600"
+            : "text-white hover:text-gray-200"
+        }`}
         aria-label="Toggle menu"
       >
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -34,7 +38,9 @@ export function MobileMenu() {
           <div className="flex justify-between items-center p-4 border-b">
             <Link href="/" onClick={() => setIsOpen(false)}>
               <div className="flex items-center space-x-2 text-blue-600">
-                <div className="text-4xl font-extrabold tracking-tight">vLex</div>
+                <div className="text-4xl font-extrabold tracking-tight">
+                  vLex
+                </div>
               </div>
             </Link>
             <button
@@ -109,7 +115,7 @@ export function MobileMenu() {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 function MobileMenuItem({
@@ -117,9 +123,9 @@ function MobileMenuItem({
   isActive,
   onClick,
 }: {
-  title: string
-  isActive: boolean
-  onClick: () => void
+  title: string;
+  isActive: boolean;
+  onClick: () => void;
 }) {
   return (
     <li>
@@ -128,28 +134,41 @@ function MobileMenuItem({
         className="flex items-center justify-between w-full py-2 text-left text-gray-700 hover:text-blue-600"
       >
         <span className="font-medium">{title}</span>
-        {isActive ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
+        {isActive ? (
+          <ChevronDown className="h-5 w-5" />
+        ) : (
+          <ChevronRight className="h-5 w-5" />
+        )}
       </button>
 
       {isActive && (
         <ul className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
           <li>
-            <Link href="#" className="block py-1 text-gray-600 hover:text-blue-600">
+            <Link
+              href="#"
+              className="block py-1 text-gray-600 hover:text-blue-600"
+            >
               Option 1
             </Link>
           </li>
           <li>
-            <Link href="#" className="block py-1 text-gray-600 hover:text-blue-600">
+            <Link
+              href="#"
+              className="block py-1 text-gray-600 hover:text-blue-600"
+            >
               Option 2
             </Link>
           </li>
           <li>
-            <Link href="#" className="block py-1 text-gray-600 hover:text-blue-600">
+            <Link
+              href="#"
+              className="block py-1 text-gray-600 hover:text-blue-600"
+            >
               Option 3
             </Link>
           </li>
         </ul>
       )}
     </li>
-  )
+  );
 }
