@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   description:
     "Lexlytic combines the largest legal database of statutes and caselaw with advanced engineering.",
   generator: "v0.dev",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
