@@ -4,15 +4,119 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 
+// Define navItems with sample data
+interface DropdownSection {
+  title: string;
+  items: string[];
+}
+
+const navItems: { title: string; dropdownData?: DropdownSection[] }[] = [
+  {
+    title: "Products",
+    dropdownData: [
+      {
+        title: "Legal Research",
+        items: ["Legal Review", "Docket Alarm", "Fastcase Legal Research"],
+      },
+      {
+        title: "Legal AI",
+        items: ["Lexlytic AI"],
+      },
+      {
+        title: "Legal Analytics",
+        items: ["Compliance Report", "Docket Alarm Analytics"],
+      },
+      {
+        title: "Tools",
+        items: ["Chrome Extension", "Word Plugin", "Share Point"],
+      },
+      {
+        title: "Practice Management",
+        items: ["NextChapter", "Quolaw", "Eunomia"],
+      },
+      {
+        title: "Enterprise",
+        items: [
+          "Market Place for Lawyers",
+          "Legal Data APIs",
+          "Custom Solutions",
+          "All Integrations",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Coverage",
+    dropdownData: [
+      {
+        title: "Northern Africa",
+        items: ["Algeria", "Egypt", "Libya", "Morocco", "Tunisia"],
+      },
+      {
+        title: "Western Africa",
+        items: [
+          "Côte d'Ivoire",
+          "Ghana",
+          "Guinea",
+          "Mali",
+          "Nigeria",
+          "Senegal",
+          "Togo",
+        ],
+      },
+      {
+        title: "Central Africa",
+        items: [
+          "Angola",
+          "Cameroon",
+          "Central African Republic",
+          "Republic of the Congo",
+          "Equatorial Guinea",
+          "Gabon",
+        ],
+      },
+      {
+        title: "Eastern Africa",
+        items: [
+          "Ethiopia",
+          "Kenya",
+          "Malawi",
+          "Rwanda",
+          "South Sudan",
+          "Tanzania",
+          "Uganda",
+          "Zambia",
+        ],
+      },
+      {
+        title: "Southern Africa",
+        items: ["Botswana", "Namibia", "South Africa"],
+      },
+    ],
+  },
+  {
+    title: "Company",
+    dropdownData: [
+      { title: "Who We Are", items: ["About Us", "Leadership", "Careers"] },
+      { title: "Media", items: ["Press Releases", "In the News"] },
+    ],
+  },
+  {
+    title: "Resources",
+    dropdownData: [
+      { title: "Knowledge Base", items: ["Help Center", "Docs", "Training"] },
+      { title: "Media", items: ["Blog", "Webinars", "Events"] },
+    ],
+  },
+];
+
 export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    if (isOpen) {
-      setActiveSubmenu(null);
-    }
+    if (isOpen) setActiveSubmenu(null);
   };
 
   const toggleSubmenu = (menu: string) => {
@@ -39,7 +143,7 @@ export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
             <Link href="/" onClick={() => setIsOpen(false)}>
               <div className="flex items-center space-x-2 text-blue-600">
                 <div className="text-4xl font-extrabold tracking-tight">
-                  vLex
+                  Lexlytic
                 </div>
               </div>
             </Link>
@@ -54,43 +158,15 @@ export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
 
           <nav className="p-4 overflow-y-auto max-h-[calc(100vh-80px)]">
             <ul className="space-y-4">
-              <MobileMenuItem
-                title="Products"
-                isActive={activeSubmenu === "products"}
-                onClick={() => toggleSubmenu("products")}
-              />
-              <MobileMenuItem
-                title="Coverage"
-                isActive={activeSubmenu === "coverage"}
-                onClick={() => toggleSubmenu("coverage")}
-              />
-              <MobileMenuItem
-                title="Customers"
-                isActive={activeSubmenu === "customers"}
-                onClick={() => toggleSubmenu("customers")}
-              />
-              <MobileMenuItem
-                title="Solutions"
-                isActive={activeSubmenu === "solutions"}
-                onClick={() => toggleSubmenu("solutions")}
-              />
-              <MobileMenuItem
-                title="Company"
-                isActive={activeSubmenu === "company"}
-                onClick={() => toggleSubmenu("company")}
-              />
-              <MobileMenuItem
-                title="Resources"
-                isActive={activeSubmenu === "resources"}
-                onClick={() => toggleSubmenu("resources")}
-              />
-              <li>
-                <div className="relative group">
-                  <button className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600">
-                    English <ChevronDown className="ml-1 h-4 w-4" />
-                  </button>
-                </div>
-              </li>
+              {navItems.map(({ title, dropdownData }) => (
+                <MobileMenuItem
+                  key={title}
+                  title={title}
+                  dropdownData={dropdownData}
+                  isActive={activeSubmenu === title}
+                  onClick={() => toggleSubmenu(title)}
+                />
+              ))}
             </ul>
           </nav>
 
@@ -101,14 +177,14 @@ export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
                 className="block w-full py-2 text-center text-gray-700 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
-                Contact US
+                Contact Us
               </Link>
               <Link
                 href="/register-interest"
                 className="block w-full py-2 text-center bg-blue-500 hover:bg-blue-600 text-white rounded-md"
                 onClick={() => setIsOpen(false)}
               >
-                Register Interest
+                Register Interest
               </Link>
             </div>
           </div>
@@ -120,10 +196,12 @@ export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
 
 function MobileMenuItem({
   title,
+  dropdownData,
   isActive,
   onClick,
 }: {
   title: string;
+  dropdownData?: DropdownSection[];
   isActive: boolean;
   onClick: () => void;
 }) {
@@ -141,32 +219,27 @@ function MobileMenuItem({
         )}
       </button>
 
-      {isActive && (
-        <ul className="pl-4 mt-2 space-y-2 border-l-2 border-gray-200">
-          <li>
-            <Link
-              href="#"
-              className="block py-1 text-gray-600 hover:text-blue-600"
-            >
-              Option 1
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#"
-              className="block py-1 text-gray-600 hover:text-blue-600"
-            >
-              Option 2
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#"
-              className="block py-1 text-gray-600 hover:text-blue-600"
-            >
-              Option 3
-            </Link>
-          </li>
+      {isActive && dropdownData && (
+        <ul className="pl-4 mt-2 space-y-4 border-l-2 border-gray-200">
+          {dropdownData.map((section) => (
+            <li key={section.title}>
+              <p className="font-semibold text-sm text-blue-600">
+                {section.title}
+              </p>
+              <ul className="ml-2 mt-1 space-y-1">
+                {section.items.map((item) => (
+                  <li key={item}>
+                    <Link
+                      href="#"
+                      className="block py-1 text-sm text-gray-600 hover:text-blue-600"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
         </ul>
       )}
     </li>
