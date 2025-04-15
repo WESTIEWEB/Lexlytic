@@ -220,27 +220,29 @@ function MobileMenuItem({
       </button>
 
       {isActive && dropdownData && (
-        <ul className="pl-4 mt-2 space-y-4 border-l-2 border-gray-200">
-          {dropdownData.map((section) => (
-            <li key={section.title}>
-              <p className="font-semibold text-sm text-blue-600">
-                {section.title}
-              </p>
-              <ul className="ml-2 mt-1 space-y-1">
-                {section.items.map((item) => (
-                  <li key={item}>
-                    <Link
-                      href="#"
-                      className="block py-1 text-sm text-gray-600 hover:text-blue-600"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
+        <div className="pl-2 mt-2 border-l-2 border-gray-200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pr-2">
+            {dropdownData.map((section) => (
+              <div key={section.title}>
+                <p className="font-semibold text-sm text-blue-600 mb-1">
+                  {section.title}
+                </p>
+                <ul className="space-y-1">
+                  {section.items.map((item) => (
+                    <li key={item}>
+                      <Link
+                        href="#"
+                        className="block text-sm text-gray-600 hover:text-blue-600"
+                      >
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
       )}
     </li>
   );

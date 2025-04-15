@@ -44,7 +44,7 @@ export function Products() {
                   align with current legal standards, precedents, and best
                   practices.
                 </p>
-                <p>
+                <>
                   <ul className="list-disc pl-5 mb-6 space-y-1">
                     <li>Expert-Driven Validation</li>
                     <li>Case Law & Statute Accuracy</li>
@@ -52,7 +52,7 @@ export function Products() {
                     <li>Risk Mitigation & Compliance</li>
                     <li>Continuous Updates</li>
                   </ul>
-                </p>
+                </>
               </>
             }
             imageUrl="https://cdn.shortpixel.ai/client/q_lossy,ret_img,w_900,h_421/https://kcrecruitment.com/wp-content/uploads/2019/02/Termination-of-Employment-img-min.jpg"
@@ -69,14 +69,14 @@ export function Products() {
                   to the highest legal, regulatory, and ethical standards across
                   all jurisdictions in which we operate.
                 </p>
-                <p>
+                <>
                   <ul className="list-disc pl-5 mb-6 space-y-1">
                     <li>Regulatory Adherence</li>
                     <li>Data Protection & Privacy</li>
                     <li>Legal Database Integrity</li>
                     <li>Ethical AI Usage</li>
                   </ul>
-                </p>
+                </>
               </>
             }
             imageUrl="https://cdn.prod.website-files.com/66e3fb5d46d50c9bc17cbce1/6703dc99b17bcff1151ed72a_mockup%202.svg"
