@@ -20,10 +20,10 @@ export default function ContactPage() {
             />
           </div>
           <div className="container mx-auto px-4 md:px-6 relative z-10 pt-20">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6">
               Contact your local Lexlytic Africa office
             </h1>
-            <p className="text-xl max-w-3xl">
+            <p className="text-xl max-w-2xl">
               Whether you have a question about a new subscription, existing
               account, training, or anything else, Lexlytic regional teams
               across Africa are here to help. Please view our offices by region
