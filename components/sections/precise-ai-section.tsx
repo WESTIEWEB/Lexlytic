@@ -10,27 +10,26 @@ export function PreciseAISection() {
           {/* Image on the right */}
           <div className="md:w-1/2 mb-8 md:mb-0">
             <Image
-              src="https://rad-witty-paper.media.strapiapp.com/Lesotho_Law_Journal_7cb81a3e2e_1987921a15.jpg"
+              src="ai2.jpg"
               alt="Woman using vLex"
               width={600}
               height={400}
-              className="w-full rounded-none md:rounded-xl shadow-lg"
+              className="w-full h-[400px] rounded-none md:rounded-xl shadow-lg"
             />
           </div>
 
           {/* Text on the left */}
-          <div className="md:w-1/2 md:pl-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              A more precise AI
+          <div className="md:w-1/2 md:pr-12">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+              AI with Legal Accuracy at Its Core
             </h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Powered by the world's largest collection of primary law.
-            </p>
+
             <ul className="space-y-4">
-              <BulletPoint text="Transparent links direct to primary legal sources." />
-              <BulletPoint text="Expert legal editors tracking judicial treatment and citations." />
-              <BulletPoint text="Updated daily caselaw and statutes direct from official sources." />
-              <BulletPoint text="Hybrid pipeline of generative and rules-based AI to increase reliability." />
+              <BulletPoint text="Lexlytic is built on the world’s most comprehensive collection of primary law." />
+              <BulletPoint text="Every insight is backed by direct links to official legal sources, so you’re never guessing." />
+              <BulletPoint text="With daily updates from trusted official sources, you’ll never miss a change in the law." />
+              <BulletPoint text="By blending generative models with rules-based systems, we deliver legal answers you can trust." />
+              <BulletPoint text="Our editorial team monitors judicial treatment, updates citations, and ensures accuracy across jurisdictions." />
             </ul>
             <Link
               href="/learn-more"

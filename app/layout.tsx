@@ -12,8 +12,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Lexlytic - AI that knows the law",
-  description:
-    "Lexlytic combines the largest legal database of statutes",
+  description: "Lexlytic combines the largest legal database of statutes",
   generator: "v0.dev",
   icons: {
     icon: "/logo.svg",
