@@ -19,8 +19,8 @@ export function HeroSection() {
               AI that knows the law
             </h1>
             <p className="text-base mb-8">
-              Built for global firms and Fortune 500 counsel, vLex combines the
-              largest legal database of statutes and caselaw with advanced
+              Built for global firms and Fortune 500 counsel, Lexlytic combines
+              the largest legal database of statutes and caselaw with advanced
               engineering. Delivering more precise answers, with transparent
               citations, across 50 states and 17 countries.
             </p>
@@ -28,7 +28,7 @@ export function HeroSection() {
               href="/discover"
               className="inline-flex items-center rounded-xl bg-white text-blue-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
             >
-              Discover Vincent AI
+              Discover Lexlytic AI
             </Link>
           </div>
           <div className="md:w-1/2 md:pl-8">

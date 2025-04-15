@@ -1,24 +1,30 @@
-import type React from "react"
-import type { Metadata } from "next"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import "./globals.css";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "vLex - AI that knows the law",
-  description: "vLex combines the largest legal database of statutes and caselaw with advanced engineering.",
-    generator: 'v0.dev'
-}
+  title: "Lexlytic - AI that knows the law",
+  description:
+    "Lexlytic combines the largest legal database of statutes and caselaw with advanced engineering.",
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={poppins.variable}>
+      <body className="font-sans">{children}</body>
     </html>
-  )
+  );
 }
-
-
-import './globals.css'

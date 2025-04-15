@@ -19,13 +19,14 @@ import { ReducingTimeSection } from "@/components/sections/reducing-time-section
 import { GetStartedSection } from "@/components/sections/get-started-section";
 import { Benefits } from "@/components/sections/benefits";
 import { Products } from "@/components/sections/products";
+import KeyFeatures from "@/components/sections/key-features";
 
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className={`flex flex-col min-h-screen ${inter.className}`}>
+    <div className={`flex flex-col min-h-screen`}>
       <Header />
 
       <main className="flex-grow">
@@ -38,6 +39,8 @@ export default function Home() {
         {/* <ResearchSection /> */}
         <Benefits />
         <RevolutionarySection />
+        <KeyFeatures />
+
         <PartnersSection />
         <WorkflowSection />
         {/* <CertSection /> */}

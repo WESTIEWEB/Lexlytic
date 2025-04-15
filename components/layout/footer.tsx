@@ -55,7 +55,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-blue-200 mb-4 md:mb-0">© 2024 vLex, LLC</p>
+          <p className="text-sm text-blue-200 mb-4 md:mb-0">© 2024 Lexlytic, LLC</p>
           <div className="flex space-x-4">
             <Link href="https://facebook.com" className="text-blue-200 hover:text-white transition-colors">
               <Facebook className="h-5 w-5" />

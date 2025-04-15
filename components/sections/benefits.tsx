@@ -5,7 +5,7 @@ export function Benefits() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-blue-800">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-16 text-blue-800">
           Benefits
         </h2>
 
@@ -47,7 +47,7 @@ interface BenefitCardProps {
 
 function BenefitCard({ icon, title, description }: BenefitCardProps) {
     return (
-      <div className="flex flex-col items-start shadow rounded-xl p-6 transform transition duration-300 hover:-translate-y-2 cursor-pointer">
+      <div className="flex flex-col items-start bg-white shadow rounded-xl p-6 transform transition duration-300 hover:-translate-y-2 cursor-pointer">
         <div className="mb-4 p-2 rounded-full bg-blue-50">{icon}</div>
         <h3 className="text-[18px] font-regular mb-3 text-blue-500">{title}</h3>
         <p className="text-gray-600 text-base">{description}</p>

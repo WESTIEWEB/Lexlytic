@@ -7,34 +7,36 @@ export function GetStartedSection() {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h3 className="text-blue-500 font-medium mb-2">Getting started</h3>
-        <h2 className="text-3xl md:text-4xl font-light mb-12">Start your vLex journey today</h2>
+        <h2 className="text-3xl md:text-4xl font-light mb-12">
+          Start your Lexlytic journey today
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <GetStartedCard
             icon={<Globe className="w-6 h-6 text-blue-500" />}
             title="Free trial"
-            description="Sign-up for a free trial of vLex and experience all the features and benefits of AI-powered legal research technology."
+            description="Sign-up for a free trial of Lexlytic and experience all the features and benefits of AI-powered legal research technology."
             linkText="Coming Soon"
             linkHref="/free-trial"
           />
           <GetStartedCard
             icon={<User className="w-6 h-6 text-blue-500" />}
             title="Register Interest"
-            description="Suitable for individuals and teams, request an online demo to discover how vLex can support your firm."
+            description="Suitable for individuals and teams, request an online demo to discover how Lexlytic can support your firm."
             linkText="Register interest"
             linkHref="/register-interest"
           />
           <GetStartedCard
             icon={<Phone className="w-6 h-6 text-blue-500" />}
             title="Contact us"
-            description="Speak to your local office and learn more about vLex technology, coverage and solutions."
+            description="Speak to your local office and learn more about Lexlytic technology, coverage and solutions."
             linkText="Contact us"
-            linkHref="/contact"
+            linkHref="/contact-us"
           />
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function GetStartedCard({

@@ -49,7 +49,7 @@ export function Header() {
         },
         {
           title: "Legal AI",
-          items: ["Vincent AI"],
+          items: ["Lexlytic AI"],
         },
         {
           title: "Legal Analytics",
@@ -189,18 +189,18 @@ export function Header() {
 
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            href="/signin"
+            href="/contact-us"
             className={`text-sm font-medium ${
               isScrolled
                 ? "text-gray-700 hover:text-blue-600"
                 : "text-white hover:text-gray-200"
             }`}
           >
-            Contact
+            Contact Us
           </Link>
           <Link
-            href="/get-started"
-            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+            href="/register-interest"
+            className="bg-blue-500 !rounded-xl hover:bg-blue-600 text-white px-4 py-3 rounded-md text-sm font-medium transition-colors"
           >
             Register Interest
           </Link>
