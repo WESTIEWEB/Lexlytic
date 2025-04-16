@@ -108,7 +108,7 @@ export function FreeTimeSection() {
           >
             <div className="relative rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/Intelligence.jpg"
+                src="/paperwork.avif"
                 alt="Legal AI illustration"
                 width={600}
                 height={400}
