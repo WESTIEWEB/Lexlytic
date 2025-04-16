@@ -5,16 +5,16 @@ export function HeroSection() {
     <section className="relative overflow-hidden min-h-screen">
       {/* Background Video with Dark Overlay */}
       <div className="absolute inset-0 z-0">
-        {/* <video
+        <video
           autoPlay
           loop
           muted
           playsInline
           className="w-full h-full object-cover object-center"
         >
-          <source src="/video/africa1.mp4" type="video/mp4" />
+          <source src="/media/africa.mp4" type="video/mp4" />
           Your browser does not support the video tag.
-        </video> */}
+        </video>
         <div className="absolute inset-0 bg-blue-900 bg-opacity-70" />
       </div>
 
