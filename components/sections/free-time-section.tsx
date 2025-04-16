@@ -92,7 +92,7 @@ export function FreeTimeSection() {
                 href="/explore"
                 className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition"
               >
-                Explore Vincent
+                Explore Lexlytic
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </motion.div>

@@ -85,7 +85,7 @@ export function PreciseAISection() {
               href="/learn-more"
               className="inline-flex items-center text-blue-500 font-medium mt-6 hover:text-blue-600"
             >
-              Learn more about our primary law{" "}
+              Learn more{" "}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </motion.div>
