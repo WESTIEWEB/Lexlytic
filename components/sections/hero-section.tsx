@@ -15,7 +15,7 @@ export function HeroSection() {
           <source src="/media/africa.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-blue-900 bg-opacity-70" />
+        <div className="absolute inset-0 bg-[#102E50] bg-opacity-80" />
       </div>
 
       {/* Centered Content Container */}
