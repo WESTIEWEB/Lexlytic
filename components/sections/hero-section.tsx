@@ -54,7 +54,7 @@ export function HeroSection() {
       style={{ backgroundImage: "url('/hero2.jpg')" }}
     >
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
+      <div className="absolute inset-0 bg-[#09122C] bg-opacity-70 z-0" />
       {/* Space decorations */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Stars */}
@@ -70,16 +70,12 @@ export function HeroSection() {
         <div className="absolute h-1 w-1 bg-white rounded-full top-80 right-[25%] opacity-50"></div>
         <div className="absolute h-2 w-2 bg-white rounded-full bottom-40 left-[30%] opacity-70"></div>
         <div className="absolute h-1 w-1 bg-white rounded-full bottom-20 right-[35%] opacity-50"></div>
+        <div className="absolute h-6 w-6 border-2 border-[#4fd1c5] rotate-45 top-[15%] left-[5%] opacity-30"></div>
+        <div className="absolute h-1 w-1 bg-white rounded-full bottom-20 right-[35%] opacity-50"></div>
 
         <div className="absolute h-1 w-1 bg-white rounded-full top-80 right-[25%] opacity-50"></div>
         <div className="absolute h-2 w-2 bg-white rounded-full bottom-40 left-[30%] opacity-70"></div>
         <div className="absolute h-1 w-1 bg-white rounded-full bottom-20 right-[35%] opacity-50"></div>
-        <div className="absolute text-white text-2xl top-[20%] right-[20%] opacity-30">
-          +
-        </div>
-        <div className="absolute text-white text-2xl bottom-[10%] left-[25%] opacity-30">
-          +
-        </div>
 
         {/* Plus signs */}
         <div className="absolute text-white text-2xl top-[10%] left-[15%] opacity-30">
@@ -92,6 +88,12 @@ export function HeroSection() {
           +
         </div>
         <div className="absolute text-white text-2xl bottom-[20%] right-[15%] opacity-30">
+          +
+        </div>
+        <div className="absolute text-white text-2xl top-[20%] right-[20%] opacity-30">
+          +
+        </div>
+        <div className="absolute text-white text-2xl bottom-[10%] left-[25%] opacity-30">
           +
         </div>
       </div>

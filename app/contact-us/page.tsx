@@ -19,6 +19,8 @@ export default function ContactPage() {
               className="object-cover"
             />
           </div>
+          <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
+
           <div className="container mx-auto px-4 md:px-6 relative z-10 pt-20">
             <h1 className="text-3xl md:text-4xl font-bold mb-6">
               Contact your local Lexlytic Africa office
@@ -149,6 +151,7 @@ export default function ContactPage() {
                     height={500}
                     className="w-full rounded-lg shadow-lg"
                   />
+                  
                   <div className="mt-8 bg-gray-50 p-6 rounded-lg shadow-sm">
                     <h3 className="text-xl font-bold mb-4 text-gray-800">
                       General Inquiries
@@ -159,19 +162,19 @@ export default function ContactPage() {
                     </p>
                     <div className="space-y-3">
                       <div className="flex items-center">
-                        <Mail className="w-5 h-5 text-blue-500 mr-3" />
+                        <Mail className="w-5 h-5 text-blue-600 mr-3" />
                         <a
                           href="mailto:info@lexlytic.com"
-                          className="text-blue-500 hover:text-blue-700"
+                          className="text-blue-600 hover:text-blue-700"
                         >
                           info@lexlytic.com
                         </a>
                       </div>
                       <div className="flex items-center">
-                        <Phone className="w-5 h-5 text-blue-500 mr-3" />
+                        <Phone className="w-5 h-5 text-blue-600 mr-3" />
                         <a
                           href="tel:+18667732782"
-                          className="text-blue-500 hover:text-blue-700"
+                          className="text-blue-600 hover:text-blue-700"
                         >
                           +1 866 773 2782
                         </a>
@@ -215,18 +218,18 @@ function RegionSection({ title, regions }: RegionSectionProps) {
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <Clock className="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                <Clock className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
                 <span className="text-gray-600">{region.hours}</span>
               </li>
               <li className="flex items-start">
-                <Mail className="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                <Mail className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-gray-600">
                     General, support, training and sales enquiries:
                   </span>
                   <a
                     href={`mailto:${region.support}`}
-                    className="text-blue-500 hover:text-blue-700"
+                    className="text-blue-600 hover:text-blue-700"
                   >
                     {region.support}
                   </a>
@@ -237,7 +240,7 @@ function RegionSection({ title, regions }: RegionSectionProps) {
                       </span>
                       <a
                         href={`mailto:${region.removal}`}
-                        className="text-blue-500 hover:text-blue-700"
+                        className="text-blue-600 hover:text-blue-700"
                       >
                         {region.removal}
                       </a>
@@ -246,10 +249,10 @@ function RegionSection({ title, regions }: RegionSectionProps) {
                 </div>
               </li>
               <li className="flex items-start">
-                <Phone className="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
                 <a
                   href={`tel:${region.phone.replace(/\D/g, "")}`}
-                  className="text-blue-500 hover:text-blue-700"
+                  className="text-blue-600 hover:text-blue-700"
                 >
                   {region.phone}
                 </a>
