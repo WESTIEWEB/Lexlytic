@@ -41,7 +41,7 @@ export default function Home() {
         <RevolutionarySection />
         <KeyFeatures />
 
-        <PartnersSection />
+        {/* <PartnersSection /> */}
         <WorkflowSection />
         {/* <CertSection /> */}
         {/* <ReducingTimeSection /> */}

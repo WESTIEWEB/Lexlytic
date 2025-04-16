@@ -164,7 +164,7 @@ export function Header() {
             <div className="flex items-center space-x-2">
               <div
                 className={`text-4xl font-extrabold tracking-tight ${
-                  isScrolled ? "text-blue-600" : "text-white"
+                  isScrolled ? "text-[#102E50]" : "text-white"
                 }`}
               >
                 Lexlytic
@@ -200,7 +200,7 @@ export function Header() {
           </Link>
           <Link
             href="/register-interest"
-            className="bg-blue-500 !rounded-xl hover:bg-blue-600 text-white px-4 py-3 rounded-md text-sm font-medium transition-colors"
+            className="bg-[#102E50] border border-2-[#102E50] !rounded-xl hover:bg-blue-600 text-white px-4 py-3 rounded-md text-sm font-medium transition-colors"
           >
             Register Interest
           </Link>

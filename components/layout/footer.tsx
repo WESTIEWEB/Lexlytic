@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Facebook, Twitter, Linkedin } from "lucide-react"
+import Link from "next/link";
+import { Facebook, Twitter, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,7 +8,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-2 text-white mb-8">
-              <div className="text-4xl font-extrabold tracking-tight">Lexlytic</div>
+              <div className="text-4xl font-extrabold tracking-tight">
+                Lexlytic
+              </div>
             </div>
           </div>
 
@@ -55,17 +57,28 @@ export function Footer() {
         </div>
 
         <div className="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-blue-200 mb-4 md:mb-0">© 2024 Lexlytic, LLC</p>
+          <p className="text-sm text-blue-200 mb-4 md:mb-0">
+            © 2024 Lexlytic, LLC
+          </p>
           <div className="flex space-x-4">
-            <Link href="https://facebook.com" className="text-blue-200 hover:text-white transition-colors">
+            <Link
+              href="https://facebook.com"
+              className="text-blue-200 hover:text-white transition-colors"
+            >
               <Facebook className="h-5 w-5" />
               <span className="sr-only">Facebook</span>
             </Link>
-            <Link href="https://twitter.com" className="text-blue-200 hover:text-white transition-colors">
+            <Link
+              href="https://twitter.com"
+              className="text-blue-200 hover:text-white transition-colors"
+            >
               <Twitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
             </Link>
-            <Link href="https://linkedin.com" className="text-blue-200 hover:text-white transition-colors">
+            <Link
+              href="https://linkedin.com"
+              className="text-blue-200 hover:text-white transition-colors"
+            >
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
@@ -73,15 +86,18 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
 function FooterLink({ href, text }: { href: string; text: string }) {
   return (
     <li>
-      <Link href={href} className="text-blue-200 hover:text-white transition-colors">
+      <Link
+        href={href}
+        className="text-blue-200 hover:text-white transition-colors"
+      >
         {text}
       </Link>
     </li>
-  )
+  );
 }
