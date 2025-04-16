@@ -50,7 +50,7 @@ import { motion } from "framer-motion";
 export function HeroSection() {
   return (
     <section
-      className="relative overflow-hidden min-h-screen bg-cover bg-center"
+      className="relative overflow-hidden min-h-screen bg-no-repeat bg-cover bg-center"
       style={{ backgroundImage: "url('/hero2.jpg')" }}
     >
       {/* Dark Overlay */}

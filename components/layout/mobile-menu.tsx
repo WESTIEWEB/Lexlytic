@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Define navItems with sample data
 interface DropdownSection {
@@ -125,11 +126,12 @@ export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
 
   return (
     <div className="md:hidden">
+      {/* Hamburger Button */}
       <button
         onClick={toggleMenu}
-        className={`p-2 focus:outline-none ${
+        className={`p-2 focus:outline-none transition ${
           isScrolled
-            ? "text-gray-600 hover:text-blue-600"
+            ? "text-gray-600 hover:text-[#102e50]"
             : "text-white hover:text-gray-200"
         }`}
         aria-label="Toggle menu"
@@ -137,63 +139,74 @@ export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </button>
 
-      {isOpen && (
-        <div className="fixed inset-0 z-50 bg-white">
-          <div className="flex justify-between items-center p-4 border-b">
-            <Link href="/" onClick={() => setIsOpen(false)}>
-              <div className="flex items-center space-x-2 text-blue-600">
-                <div className="text-4xl font-extrabold tracking-tight">
+      {/* Animated Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="fixed inset-0 z-50 bg-white"
+          >
+            {/* Header */}
+            <div className="flex justify-between items-center p-4 border-b shadow-sm">
+              <Link href="/" onClick={() => setIsOpen(false)}>
+                <div className="text-[#102e50] text-2xl font-extrabold">
                   Lexlytic
                 </div>
-              </div>
-            </Link>
-            <button
-              onClick={toggleMenu}
-              className="p-2 text-gray-600 hover:text-blue-600 focus:outline-none"
-              aria-label="Close menu"
-            >
-              <X className="h-6 w-6" />
-            </button>
-          </div>
-
-          <nav className="p-4 overflow-y-auto max-h-[calc(100vh-80px)]">
-            <ul className="space-y-4">
-              {navItems.map(({ title, dropdownData }) => (
-                <MobileMenuItem
-                  key={title}
-                  title={title}
-                  dropdownData={dropdownData}
-                  isActive={activeSubmenu === title}
-                  onClick={() => toggleSubmenu(title)}
-                />
-              ))}
-            </ul>
-          </nav>
-
-          <div className="absolute bottom-0 left-0 right-0 p-4 border-t bg-white">
-            <div className="flex flex-col space-y-4">
-              <Link
-                href="/contact-us"
-                className="block w-full py-2 text-center text-gray-700 hover:text-blue-600"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact Us
               </Link>
-              <Link
-                href="/register-interest"
-                className="block w-full py-2 text-center bg-blue-500 hover:bg-blue-600 text-white rounded-md"
-                onClick={() => setIsOpen(false)}
+              <button
+                onClick={toggleMenu}
+                className="p-2 text-gray-600 hover:text-[#102e50]"
+                aria-label="Close menu"
               >
-                Register Interest
-              </Link>
+                <X className="h-6 w-6" />
+              </button>
             </div>
-          </div>
-        </div>
-      )}
+
+            {/* Navigation List */}
+            <nav className="p-4 overflow-y-auto h-[calc(100vh-130px)]">
+              <ul className="space-y-4">
+                {navItems.map(({ title, dropdownData }) => (
+                  <MobileMenuItem
+                    key={title}
+                    title={title}
+                    dropdownData={dropdownData}
+                    isActive={activeSubmenu === title}
+                    onClick={() => toggleSubmenu(title)}
+                  />
+                ))}
+              </ul>
+            </nav>
+
+            {/* Footer CTA */}
+            <div className="absolute bottom-0 w-full p-4 border-t bg-white shadow-inner">
+              <div className="flex flex-col space-y-3">
+                <Link
+                  href="/contact-us"
+                  className="block text-center text-gray-700 hover:text-[#102e50]"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact Us
+                </Link>
+                <Link
+                  href="/register-interest"
+                  className="block text-center bg-[#102e50] hover:bg-blue-700 text-white py-2 rounded-md font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Register Interest
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
+// Mobile dropdown item
 function MobileMenuItem({
   title,
   dropdownData,
@@ -206,12 +219,12 @@ function MobileMenuItem({
   onClick: () => void;
 }) {
   return (
-    <li>
+    <li className="border rounded-md shadow-sm">
       <button
         onClick={onClick}
-        className="flex items-center justify-between w-full py-2 text-left text-gray-700 hover:text-blue-600"
+        className="flex justify-between items-center w-full px-4 py-3 text-left font-semibold text-gray-800 hover:text-[#102e50]"
       >
-        <span className="font-medium">{title}</span>
+        <span>{title}</span>
         {isActive ? (
           <ChevronDown className="h-5 w-5" />
         ) : (
@@ -219,31 +232,39 @@ function MobileMenuItem({
         )}
       </button>
 
-      {isActive && dropdownData && (
-        <div className="pl-2 mt-2 border-l-2 border-gray-200">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pr-2">
-            {dropdownData.map((section) => (
-              <div key={section.title}>
-                <p className="font-semibold text-sm text-blue-600 mb-1">
-                  {section.title}
-                </p>
-                <ul className="space-y-1">
-                  {section.items.map((item) => (
-                    <li key={item}>
-                      <Link
-                        href="#"
-                        className="block text-sm text-gray-600 hover:text-blue-600"
-                      >
-                        {item}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {isActive && dropdownData && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="px-4 pb-3"
+          >
+            <div className="space-y-4">
+              {dropdownData.map((section) => (
+                <div key={section.title}>
+                  <p className="text-sm font-bold text-[#102e50] mb-1">
+                    {section.title}
+                  </p>
+                  <ul className="space-y-1">
+                    {section.items.map((item) => (
+                      <li key={item}>
+                        <Link
+                          href="#"
+                          className="block text-sm text-gray-600 hover:text-[#102e50]"
+                        >
+                          {item}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </li>
   );
 }
