@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Define navItems with sample data
 interface DropdownSection {
   title: string;
   items: string[];
@@ -147,7 +146,7 @@ export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 bg-white"
+            className="fixed inset-0 z-50 bg-gray-50"
           >
             {/* Header */}
             <div className="flex justify-between items-center p-4 border-b shadow-sm">
@@ -219,10 +218,10 @@ function MobileMenuItem({
   onClick: () => void;
 }) {
   return (
-    <li className="border rounded-md shadow-sm">
+    <li className="border border-[#102e50] rounded-xl shadow-sm">
       <button
         onClick={onClick}
-        className="flex justify-between items-center w-full px-4 py-3 text-left font-semibold text-gray-800 hover:text-[#102e50]"
+        className="flex justify-between items-center w-full px-4 py-3 text-left font-semibold text-[#102e50] hover:text-[#0e2440]"
       >
         <span>{title}</span>
         {isActive ? (
@@ -243,7 +242,10 @@ function MobileMenuItem({
           >
             <div className="space-y-4">
               {dropdownData.map((section) => (
-                <div key={section.title}>
+                <div
+                  key={section.title}
+                  className="border border-gray-300 rounded-xl p-3 bg-white/70"
+                >
                   <p className="text-sm font-bold text-[#102e50] mb-1">
                     {section.title}
                   </p>

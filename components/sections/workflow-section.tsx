@@ -106,10 +106,10 @@ export function WorkflowSection() {
       </div>
 
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-12">
+        <div className="flex flex-col-reverse md:flex-row items-start md:items-center gap-12">
           {/* Left: Regions & Countries List */}
           <motion.div
-            className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6"
+            className="md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
             initial="hidden"
             whileInView="visible"
             variants={regionVariants}
@@ -121,14 +121,14 @@ export function WorkflowSection() {
                 className="bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
               >
-                <h4 className="text-yellow-400 text-lg font-bold mb-3">
+                <h4 className="text-[#4fd1c5] text-lg font-bold mb-3">
                   {region.title}
                 </h4>
                 <ul className="text-sm space-y-1 text-white/90">
                   {region.countries.map((country) => (
                     <motion.li
                       key={country}
-                      className="before:content-['•'] before:text-yellow-400 before:mr-2"
+                      className="before:content-['•'] before:text-[#4fd1c5] before:mr-2"
                       whileHover={{
                         color: "#fbd38d",
                         transition: { duration: 0.3 },
@@ -150,7 +150,7 @@ export function WorkflowSection() {
             variants={regionVariants}
             viewport={{ once: true }}
           >
-            <h3 className="font-semibold text-yellow-500 text-xl mb-6">
+            <h3 className="font-semibold text-[#4fd1c5] text-xl mb-6">
               REGION
             </h3>
             <h2 className="text-3xl md:text-4xl font-semibold mb-6">

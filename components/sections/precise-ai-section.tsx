@@ -37,7 +37,7 @@ export function PreciseAISection() {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row-reverse items-center">
+        <div className="flex flex-col-reverse md:flex-row-reverse items-center">
           {/* Image on the right */}
           <motion.div
             className="md:w-1/2 mb-8 md:mb-0"
