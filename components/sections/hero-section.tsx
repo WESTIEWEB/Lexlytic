@@ -12,7 +12,7 @@ export function HeroSection() {
           playsInline
           className="w-full h-full object-cover object-center"
         >
-          <source src="/public/media/africa.mp4" type="video/mp4" />
+          <source src="/africa.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-[#102E50] bg-opacity-80" />
