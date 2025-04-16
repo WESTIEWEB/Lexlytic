@@ -157,7 +157,7 @@ export function WorkflowSection() {
               Enjoy on-the-ground knowledge from the best local firms — on a
               pan-African scale
             </h2>
-            <p className="text-xl mb-6">
+            <p className="text-base mb-6">
               Our platform is the result of years of trust building with over
               150 of Africa’s finest law firms. What better proof of our
               collaborative approach?
