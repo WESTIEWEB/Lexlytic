@@ -34,7 +34,7 @@ export function RevolutionarySection() {
         <blockquote className="text-base md:text-base italic max-w-4xl mb-8">
           "Lexlytic AI is not just a new product; it's a revolutionary approach
           that diverges from the path tread by conventional case law
-          providers... I'm thoroughly impressed."
+          providers.... I'm thoroughly impressed."
         </blockquote>
         <p className="font-medium text-base">
           Chad Ergun, Chief Information Officer, Davis Graham & Stubbs LLP
