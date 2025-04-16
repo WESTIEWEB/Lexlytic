@@ -47,7 +47,7 @@ export function PreciseAISection() {
             viewport={{ once: true }}
           >
             <Image
-              src="/ai2.jpg"
+              src="/Legal.jpg"
               alt="Woman using vLex"
               width={600}
               height={400}
