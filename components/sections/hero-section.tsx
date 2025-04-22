@@ -100,19 +100,16 @@ export function HeroSection() {
       {/* Animated Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 text-white text-center">
         <motion.div
-          className="max-w-3xl"
+          className="max-w-4xl"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <h1 className="text-4xl md:text-5xl font-semibold mb-6 leading-tight drop-shadow-xl">
-            AI that knows the law
+          One Platform for Every Law—Instant Clarity, Zero Confusion.
           </h1>
           <p className="text-base mb-8 text-gray-200 drop-shadow">
-            Built for global firms and Fortune 500 counsel, Lexlytic combines
-            the largest legal database of statutes and caselaw with advanced
-            engineering. Delivering more precise answers, with transparent
-            citations, across 50 states and 17 countries.
+          Lexlytic's AI ingests any regulation, anywhere. See clear obligations, deadlines and risks at a glance, and connect with a vetted professional in a single click.
           </p>
           <motion.div
             whileHover={{ scale: 1.05 }}

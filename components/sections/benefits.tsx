@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { Globe, Building2, Filter, DollarSign } from "lucide-react";
+import { Globe, Building2, Filter, DollarSign, ClockArrowUp, Handshake, Cast, } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Benefits() {
@@ -15,27 +15,27 @@ export function Benefits() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <BenefitCard
+            icon={<Handshake className="w-8 h-8 text-white" />}
+            title="Instant Clarity"
+            description="Turn regulatory complexity into straightforward actions."
+          />
+
+          <BenefitCard
+            icon={<ClockArrowUp className="w-8 h-8 text-white" />}
+            title="Real-Time Updates"
+            description="Stay compliant with alerts the moment laws change."
+          />
+
+          <BenefitCard
             icon={<Globe className="w-8 h-8 text-white" />}
-            title="Act with Confidence"
-            description="With Lexlytic, you will be certain of understanding and complying with the applicable laws, staying ahead of developments, and laying a solid foundation for future growth."
+            title="Global Scope"
+            description="Navigate regulations seamlessly across borders."
           />
 
           <BenefitCard
-            icon={<Building2 className="w-8 h-8 text-white" />}
-            title="Build your Business on Trust"
-            description="Operating your business on the right side of law is a daily duty. We bring the peace of mind that your legal intelligence is always up to date and that you'll know the requirements your business faces across the continent."
-          />
-
-          <BenefitCard
-            icon={<Filter className="w-8 h-8 text-white" />}
-            title="Cut Through the Noise"
-            description="Lexlytic gives you curated information, up to date and relevant to your needs. Make better decisions, faster, with the most trusted legal intelligence on the global market."
-          />
-
-          <BenefitCard
-            icon={<DollarSign className="w-8 h-8 text-white" />}
-            title="Take Control of Your Budget"
-            description="Reduce your external legal costs both through our authoritative answers and our legal-procurement tools. Get more value from your legal spend."
+            icon={<Cast className="w-8 h-8 text-white" />}
+            title="Actionable Insights"
+            description="Connect directly to verified legal professionals."
           />
         </div>
       </div>
