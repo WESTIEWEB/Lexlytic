@@ -20,6 +20,9 @@ import { GetStartedSection } from "@/components/sections/get-started-section";
 import { Benefits } from "@/components/sections/benefits";
 import { Products } from "@/components/sections/products";
 import KeyFeatures from "@/components/sections/key-features";
+import InsightsFromCeo from "@/components/sections/insignts-from-ceo";
+import { BeforeLexlyticSection } from "@/components/sections/problems";
+import { AfterLexlyticSection } from "@/components/sections/solutions";
 
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -31,8 +34,10 @@ export default function Home() {
 
       <main className="flex-grow">
         <HeroSection />
-        <FreeTimeSection />
-        <PreciseAISection />
+        {/* <FreeTimeSection /> */}
+        <BeforeLexlyticSection />
+        <AfterLexlyticSection />
+        {/* <PreciseAISection /> */}
         <Products />
         {/* <AwardSection /> */}
         <StatsSection />
@@ -40,12 +45,12 @@ export default function Home() {
         <Benefits />
         <RevolutionarySection />
         <KeyFeatures />
-
         {/* <PartnersSection /> */}
         <WorkflowSection />
+        <GetStartedSection />
+        <InsightsFromCeo />
         {/* <CertSection /> */}
         {/* <ReducingTimeSection /> */}
-        <GetStartedSection />
       </main>
 
       <Footer />

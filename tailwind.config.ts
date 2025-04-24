@@ -11,6 +11,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       sans: ["var(--font-poppins)", "sans-serif"],
+      josefin: ["var(--font-josefin)", "sans-serif"],
     },
     container: {
       center: true,

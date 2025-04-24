@@ -127,9 +127,11 @@ export function FreeTimeSection() {
 function FeatureItem({
   title,
   description,
+  icon,
 }: {
   title: string;
   description: string;
+  icon?: React.ReactNode;
 }) {
   return (
     <motion.li
@@ -138,7 +140,7 @@ function FeatureItem({
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="flex-shrink-0 mr-3 mt-1">
-        <div className="w-2.5 h-2.5 bg-blue-600 rounded-full"></div>
+        {icon ? icon : <div className="w-2.5 h-2.5 bg-blue-600 rounded-full"></div>}
       </div>
       <div>
         <h3 className="font-semibold text-lg mb-1 text-gray-800">{title}</h3>
