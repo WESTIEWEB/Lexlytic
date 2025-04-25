@@ -113,7 +113,7 @@ export function WorkflowSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col-reverse md:flex-row items-start md:items-center gap-12">
           {/* Left: Regions & Countries List */}
-          <motion.div
+          {/* <motion.div
             className="md:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6 w-full"
             initial="hidden"
             whileInView="visible"
@@ -145,19 +145,19 @@ export function WorkflowSection() {
                 </ul>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div> */}
 
           {/* Right: Text Content */}
           {/* Right: Updated Text Content */}
           <motion.div
-            className="md:w-1/2 space-y-6"
+            className="w-full space-y-6"
             initial="hidden"
             whileInView="visible"
             variants={regionVariants}
             viewport={{ once: true }}
           >
-            <h3 className="font-semibold text-[#4fd1c5] text-xl md:text-2xl">Local Insight, Continental Reach</h3>
-            <h2 className="text-base font-bold">
+            <h3 className="text-[#4fd1c5] text-3xl md:text-4xl font-semibold text-center">Local Insight, Continental Reach</h3>
+            <h2 className="md:text-2xl text-xl font-semibold text-center">
               Lexlytic delivers jurisdiction-perfect compliance in every market we serve,
               because we build alongside the people who know the rules best.
             </h2>
@@ -170,7 +170,7 @@ export function WorkflowSection() {
             </p>
             <p className="text-base">
               <strong>Coverage where complexity is highest</strong>
-              <ul className="list-disc list-inside ml-4 mt-2 space-y-1 text-sm text-white/90">
+              <ul className="list-disc list-inside ml-4 mt-2 space-y-3 text-[#4fd1c5] text-sm font-semibold mb-3" >
                 <li>West Africa — Nigeria, Ghana, Côte d'voire, Guinea, Mali, Senegal, Togo</li>
                 <li>East Africa — Kenya, Tanzania, Rwanda, Uganda, Ethiopia, Malawi, Zambia</li>
                 <li>Southern Africa — South Africa, Botswana, Namibia, Zambia</li>

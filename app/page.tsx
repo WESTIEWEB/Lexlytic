@@ -38,13 +38,13 @@ export default function Home() {
         <BeforeLexlyticSection />
         <AfterLexlyticSection />
         {/* <PreciseAISection /> */}
-        <Products />
+        {/* <Products /> */}
         {/* <AwardSection /> */}
         {/* <StatsSection /> */}
         {/* <ResearchSection /> */}
         <Benefits />
-        <InsightsFromCeo />
         <KeyFeatures />
+        <InsightsFromCeo />
         {/* <RevolutionarySection /> */}
         {/* <PartnersSection /> */}
         <WorkflowSection />

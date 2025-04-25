@@ -67,11 +67,11 @@ export function BeforeLexlyticSection() {
                 },
               }}
             >
-              <FeatureItem icon={<ChartScatter className="text-red-300" />} title="Regulations scattered across websites" />
-              <FeatureItem icon={<Hourglass className="text-red-300" />} title="Hours spent researching simple laws" />
-              <FeatureItem icon={<Banknote className="text-red-300" />} title="Expensive lawyer fees for basic compliance" />
-              <FeatureItem icon={<CalendarX className="text-red-300" />} title="Unclear deadlines and costly penalties" />
-              <FeatureItem icon={<ShieldAlert className="text-red-300" />} title="Difficulty managing rules across multiple jurisdictions" />
+              <FeatureItem icon={<ChartScatter className="text-red-900" />} title="Regulations scattered across websites" />
+              <FeatureItem icon={<Hourglass className="text-red-900" />} title="Hours spent researching simple laws" />
+              <FeatureItem icon={<Banknote className="text-red-900" />} title="Expensive lawyer fees for basic compliance" />
+              <FeatureItem icon={<CalendarX className="text-red-900" />} title="Unclear deadlines and costly penalties" />
+              <FeatureItem icon={<ShieldAlert className="text-red-900" />} title="Difficulty managing rules across multiple jurisdictions" />
             </motion.ul>
 
             {/* <motion.div
