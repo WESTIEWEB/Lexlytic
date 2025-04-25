@@ -49,6 +49,11 @@ export function WorkflowSection() {
       title: "Southern Africa",
       countries: ["Botswana", "Namibia", "South Africa"],
     },
+
+    {
+      title: "UK + EU gateway for multinationals expanding into Africa",
+      countries: [],
+    },
   ];
 
   // Animations for regions and text
@@ -143,7 +148,45 @@ export function WorkflowSection() {
           </motion.div>
 
           {/* Right: Text Content */}
-          <motion.div
+          {/* Right: Updated Text Content */}
+<motion.div
+  className="md:w-1/2 space-y-6"
+  initial="hidden"
+  whileInView="visible"
+  variants={regionVariants}
+  viewport={{ once: true }}
+>
+  <h3 className="font-semibold text-[#4fd1c5] text-xl">Local Insight, Continental Reach</h3>
+  <h2 className="text-3xl md:text-4xl font-semibold">
+    Lexlytic delivers jurisdiction-perfect compliance in every market we serve,
+    because we build alongside the people who know the rules best.
+  </h2>
+  <p className="text-base">
+    <strong>Ground-level partners, not surface-level data</strong><br />
+    We work hand-in-hand with respected lawyers, notaries, and regulatory advisers in each country we enter.
+    They supply the nuance behind every statute; our platform turns it into instant, actionable guidance.
+  </p>
+  <p className="text-base">
+    <strong>Coverage where complexity is highest</strong>
+    <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
+      <li>West Africa — Nigeria, Ghana, Côte d'voire, Guinea, Mali, Senegal, Togo</li>
+      <li>East Africa — Kenya, Tanzania, Rwanda, Uganda, Ethiopia, Malawi, Zambia</li>
+      <li>Southern Africa — South Africa, Botswana, Namibia, Zambia</li>
+      <li>UK + EU gateway for multinationals expanding into Africa</li>
+    </ul>
+  </p>
+  <p className="text-base">
+    <strong>Trust earned, not assumed</strong><br />
+    Relationships with a diverse range of local professionals mean real-time updates,
+    faster execution, and culturally accurate advice — before, during, and after every legislative change.
+  </p>
+  <p className="text-base">
+    Operate in two, ten, or twenty jurisdictions? Lexlytic gives you the same certainty
+    you'd expect from a single in-house counsel, scaled across the continent.
+  </p>
+</motion.div>
+
+          {/* <motion.div
             className="md:w-1/2"
             initial="hidden"
             whileInView="visible"
@@ -162,7 +205,7 @@ export function WorkflowSection() {
               150 of Africa’s finest law firms. What better proof of our
               collaborative approach?
             </p>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

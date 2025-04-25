@@ -58,8 +58,9 @@ export function HeroSection() {
       muted
       playsInline
       className="w-full h-full object-cover object-center"
+      poster="/hero2.jpg"
     >
-      <source src="/https://res.cloudinary.com/dhpstjgo4/video/upload/v1745547132/globalmap_ydysgg.mp4" type="video/mp4" />
+      <source src="https://res.cloudinary.com/dhpstjgo4/video/upload/v1745547132/globalmap_ydysgg.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     

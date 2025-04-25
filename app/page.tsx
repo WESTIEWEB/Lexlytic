@@ -40,10 +40,10 @@ export default function Home() {
         {/* <PreciseAISection /> */}
         <Products />
         {/* <AwardSection /> */}
-        <StatsSection />
+        {/* <StatsSection /> */}
         {/* <ResearchSection /> */}
         <Benefits />
-        <RevolutionarySection />
+        {/* <RevolutionarySection /> */}
         <KeyFeatures />
         {/* <PartnersSection /> */}
         <WorkflowSection />
