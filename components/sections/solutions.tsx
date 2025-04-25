@@ -46,7 +46,7 @@ export function AfterLexlyticSection() {
             viewport={{ once: true }}
           >
             <motion.h2
-              className="text-3xl md:text-4xl font-bold mb-6 text-gray-900"
+              className="text-3xl md:text-4xl font-semibold text-blue-900 mb-6"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
@@ -153,7 +153,7 @@ function FeatureItem({ title, icon }: { title: string, icon?: React.ReactNode; }
         {icon ? icon : <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>}
       </div>
       <div>
-        <p className="text-gray-700 text-base font-medium">{title}</p>
+        <p className="text-gray-700 text-base">{title}</p>
       </div>
     </motion.li>
   );

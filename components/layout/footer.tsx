@@ -58,7 +58,7 @@ export function Footer() {
 
         <div className="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-blue-200 mb-4 md:mb-0">
-            © 2024 Lexlytic, LLC
+            © 2025 Lexlytic. All rights reserved.
           </p>
           <div className="flex space-x-4">
             <Link

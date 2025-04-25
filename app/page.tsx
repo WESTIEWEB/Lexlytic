@@ -43,12 +43,12 @@ export default function Home() {
         {/* <StatsSection /> */}
         {/* <ResearchSection /> */}
         <Benefits />
-        {/* <RevolutionarySection /> */}
+        <InsightsFromCeo />
         <KeyFeatures />
+        {/* <RevolutionarySection /> */}
         {/* <PartnersSection /> */}
         <WorkflowSection />
         <GetStartedSection />
-        <InsightsFromCeo />
         {/* <CertSection /> */}
         {/* <ReducingTimeSection /> */}
       </main>

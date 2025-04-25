@@ -28,8 +28,8 @@ export function GetStartedSection() {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6 text-center">
-        <h3 className="text-blue-500 font-medium mb-2">Getting started</h3>
-        <h2 className="text-3xl md:text-4xl font-light mb-12">
+        <h3 className="text-3xl md:text-4xl font-semibold text-blue-900 mb-2">Getting started</h3>
+        <h2 className="text-2xl font-semibold text-gray-700 mb-12">
           Start your Lexlytic journey today
         </h2>
 
