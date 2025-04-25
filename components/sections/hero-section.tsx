@@ -62,6 +62,7 @@ export function HeroSection() {
       <source src="/globalmap.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
+    
     {/* Optional: Add a darker overlay over the video if needed */}
     <div className="absolute inset-0 bg-[#09122C] bg-opacity-70" />
   </div>
