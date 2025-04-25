@@ -36,7 +36,7 @@ export function BeforeLexlyticSection() {
   return (
     <section className="relative py-20 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 content-center">
-        <div className="flex flex-col md:flex-row-reverse md:justify-center items-center md:items-start gap-12">
+        <div className="md:flex flex-col md:flex-row-reverse md:justify-center items-center md:items-start gap-12">
           {/* Text Section */}
           <motion.div
             className="md:w-1/2 h-[420px] md:flex md:flex-col md:justify-center"
