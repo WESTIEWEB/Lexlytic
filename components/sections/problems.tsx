@@ -39,7 +39,7 @@ export function BeforeLexlyticSection() {
         <div className="flex flex-col md:flex-row-reverse md:justify-center items-center md:items-start gap-12">
           {/* Text Section */}
           <motion.div
-            className="md:w-1/2 h-[420px] flex flex-col justify-center"
+            className="md:w-1/2 h-[420px] md:flex md:flex-col md:justify-center"
             variants={slideInRight}
             initial="hidden"
             whileInView="visible"
