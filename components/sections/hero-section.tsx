@@ -49,8 +49,7 @@ import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden min-h-screen bg-no-repeat bg-cover bg-center" >
-      {/* style={{ backgroundImage: "url('/hero2.jpg')" }} */}
+    <section className="relative overflow-hidden min-h-screen bg-no-repeat bg-cover bg-center" style={{ backgroundImage: "url('/hero2.jpg')" }}>
   {/* Video Background Layer */}
   <div className="absolute inset-0 z-0">
     <video
@@ -60,7 +59,7 @@ export function HeroSection() {
       playsInline
       className="w-full h-full object-cover object-center"
     >
-      <source src="/videos/globalmap.mp4" type="video/mp4" />
+      <source src="/https://res.cloudinary.com/dhpstjgo4/video/upload/v1745547132/globalmap_ydysgg.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     
