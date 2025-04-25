@@ -181,7 +181,26 @@ export default function KeyFeatures() {
             description="Translate from English to local languages — and vice versa — with high accuracy and legal context sensitivity."
           /> */}
           <FeatureCard
-            icon={<PlusIcon className="w-6 h-6" />}
+            icon={<svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7 1.274 4.057-1.512 9-5.458 9-3.947 0-6.734-4.943-8.008-9z"
+              />
+            </svg>}
             title="Law-to-Task Engine™"
             description="Ingests full statutes, gazettes, and circulars, then outputs a plain-language checklist of obligations, deadlines, and penalties—fully cited."
           />
