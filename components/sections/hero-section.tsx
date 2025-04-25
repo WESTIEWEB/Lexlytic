@@ -49,7 +49,8 @@ import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden min-h-screen bg-no-repeat bg-cover bg-center" style={{ backgroundImage: "url('/hero2.jpg')" }}>
+    <section className="relative overflow-hidden min-h-screen bg-no-repeat bg-cover bg-center" >
+      {/* style={{ backgroundImage: "url('/hero2.jpg')" }} */}
   {/* Video Background Layer */}
   <div className="absolute inset-0 z-0">
     <video
