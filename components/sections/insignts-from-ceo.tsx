@@ -22,11 +22,11 @@ const InsightsFromCeo = () => {
                     </div>
 
                     {/* Two-column layout */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 font-josefin text-base md:text-lg text-justify leading-relaxed">
+                    <div className="grid grid-cols-2 md:grid-cols-2 gap-10 font-josefin text-base md:text-lg text-justify leading-relaxed">
                         {/* Left Column */}
                         {/* <Image src={'/letter.png'} alt="Letter" width={500} height={500} className="block w-full h-auto mb-4" />  */}
                         <div className='md:text-base text-base font-semibold mb-3 text-blue-900'>
-                            <p className="mb-4 text-lg">Dear Reader,</p>
+                            {/* <p className="mb-4 text-lg">Dear Reader,</p> */}
                             <p className="mb-4">
                                 Most days in compliance start the same way:
                                 multiple government sites open, dozens of PDFs to decode, a looming deadline you’re not 100% sure about.

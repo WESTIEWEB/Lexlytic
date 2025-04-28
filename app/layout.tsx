@@ -18,8 +18,8 @@ const josefin = Josefin_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Lexlytic - AI that knows the law",
-  description: "Lexlytic combines the largest legal database of statutes",
+  title: "One Platform for Every Law—Instant Clarity, Zero Confusion",
+  description: "Lexlytic's AI ingests any regulation, anywhere. See clear obligations,deadlines and risks at a glance, and connect with a vetted professional in a single click",
   generator: "v0.dev",
   icons: {
     icon: "/logo.svg",

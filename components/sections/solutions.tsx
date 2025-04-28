@@ -3,158 +3,196 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle, ClipboardList, DollarSign, Flag, Globe, UserCheck } from "lucide-react";
+import {
+  ClipboardList,
+  CheckCircle,
+  DollarSign,
+  Flag,
+  Globe,
+  UserCheck,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
-const slideInLeft = {
-  hidden: { opacity: 0, x: -50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
+const images = [
+    { src: "/solution1.webp", alt: "Summary" },
+    { src: "/legal-team.png", alt: "Legal Team" },
+    { src: "/solution3.jpg", alt: "Compliance Made Easy" },
+    { src: "/solution4.webp", alt: "Verified Help" },
+  ];
 
-const slideInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
+const solutions = [
+  {
+    emoji: "📘",
+    title: "Everything in one place",
+    description: "All regulations summarized and organized in a clean dashboard.",
   },
-};
-
-const slideInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
+  {
+    emoji: "⚡",
+    title: "Clear, instant answers",
+    description: "Understand your legal obligations without endless research.",
   },
-};
+  {
+    emoji: "💰",
+    title: "Save on legal costs",
+    description: "Skip costly consultations — get expert-verified guidance on demand.",
+  },
+  {
+    emoji: "📅",
+    title: "Never miss a deadline",
+    description: "Stay ahead of compliance with reminders and tracked tasks.",
+  },
+  {
+    emoji: "🌍",
+    title: "Global compliance made simple",
+    description: "Easily manage laws across borders with jurisdiction-aware insights.",
+  },
+];
 
 export function AfterLexlyticSection() {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      nextImage();
+    }, 3000); // Change image every 3 seconds (adjust as needed)
+
+    // Clean up the interval when the component unmounts to prevent memory leaks
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array means this effect runs once after the initial render
+
   return (
-    <section className="relative py-20 bg-gray-50 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 content-center">
-        <div className="flex flex-col md:flex-row md:justify-center items-center md:items-start gap-12">
-          {/* Text Section */}
-          <motion.div
-            className="md:w-1/2 h-[420px] flex flex-col justify-center"
-            variants={slideInLeft}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+    <section className="bg-[#f4fbf8] py-20">
+      <div className="w-full container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        {/* Left - Text and Solutions */}
+        <div className="space-y-8">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-[#1f3c2e] text-center md:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <motion.h2
-              className="text-3xl md:text-4xl font-semibold text-blue-900 mb-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-            >
-              After Lexlytic: Compliance is Clear and Simple
-            </motion.h2>
+            After Lexlytic, everything feels like this 😌
+          </motion.h2>
 
-            <motion.ul
-              className="space-y-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                visible: {
-                  transition: {
-                    staggerChildren: 0.2,
-                  },
-                },
-              }}
-            >
-              <FeatureItem icon={<ClipboardList className="text-green-500" />} title="All regulations summarized in one place" />
-              <FeatureItem icon={<CheckCircle className="text-green-500" />} title="Instantly understand your legal obligations" />
-              <FeatureItem icon={<DollarSign className="text-green-500" />} title="Save money on legal consultations" />
-              <FeatureItem icon={<Flag className="text-green-500" />} title="Clear deadlines and compliance tasks" />
-              <FeatureItem icon={<Globe className="text-green-500" />} title="Easily manage regulations across borders" />
-              <FeatureItem icon={<UserCheck className="text-green-500" />} title="Verified professionals just one click away" />
-            </motion.ul>
-
-            {/* <motion.div
-              className="mt-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              <Link
-                href="/explore"
-                className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition"
+          <div className="grid md:grid-cols-1 gap-6">
+            {solutions.map((item, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-md flex items-start gap-4 text-left"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                See Lexlytic in Action →
-              </Link>
-            </motion.div> */}
-          </motion.div>
-
-          {/* Image Section */}
+                <div className="text-3xl">{item.emoji}</div>
+                <div>
+                  <h4 className="text-lg font-semibold text-[#1f3c2e] mb-1">{item.title}</h4>
+                  <p className="text-sm text-[#4c6659]">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+{/* 
           <motion.div
-            className="md:w-1/2 w-full flex justify-center items-center"
-            variants={slideInRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            className="mt-6 text-center md:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="relative w-full h-[420px] grid grid-cols-2 gap-4">
-            <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-blue-600 rounded-full z-10 transform -translate-x-1/2 -translate-y-1/2" />
+            <Link
+              href="/explore"
+              className="inline-block bg-[#1f3c2e] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#355d47] transition"
+            >
+              Explore the Lexlytic advantage 🚀
+            </Link>
+          </motion.div> */}
+        </div>
 
-            {/* Orbit lines */}
-            <div className="absolute top-0 left-1/2 w-0.5 h-[50%] bg-gray-300 transform -translate-x-1/2 origin-bottom" />
-            <div className="absolute top-1/2 right-0 h-0.5 w-[50%] bg-gray-300 transform -translate-y-1/2 origin-left" />
-            <div className="absolute bottom-0 left-1/2 w-0.5 h-[50%] bg-gray-300 transform -translate-x-1/2 origin-top" />
-            <div className="absolute top-1/2 left-0 h-0.5 w-[50%] bg-gray-300 transform -translate-y-1/2 origin-right" />
+        <div className="relative md:hidden">
+            <div className="relative w-full aspect-w-1 aspect-h-1 rounded-xl shadow-lg overflow-hidden">
               <Image
-                src="/solution1.webp"
-                alt="Clear Summary"
-                width={200}
-                height={200}
-                className="rounded-xl shadow-md absolute top-0 left-1/2 transform -translate-x-1/2"
-              />
-              <Image
-                src="/legal-team.png"
-                alt="Checklist"
-                width={200}
-                height={200}
-                className="rounded-xl shadow-md absolute top-1/2 right-0 transform -translate-y-1/2"
-              />
-              <Image
-                src="/solution3.jpg"
-                alt="Compliance Pathway"
-                width={200}
-                height={200}
-                className="rounded-xl shadow-md absolute bottom-0 left-1/2 transform -translate-x-1/2 "
-              />
-              <Image
-                src="/solution4.webp"
-                alt="Verified Help"
-                width={200}
-                height={200}
-                className="rounded-xl shadow-md absolute top-1/2 left-0 transform -translate-y-1/2"
+                src={images[currentImageIndex].src}
+                alt={images[currentImageIndex].alt}
+                fill
+                className="object-cover transition-opacity duration-500 ease-in-out"
+                style={{ opacity: 1 }}
               />
             </div>
-          </motion.div>
-        </div>
+            <button
+              onClick={prevImage}
+              className="absolute top-1/2 left-2 -translate-y-1/2 bg-white/50 backdrop-blur-sm text-gray-700 rounded-full p-2 hover:bg-white/80 transition"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute top-1/2 right-2 -translate-y-1/2 bg-white/50 backdrop-blur-sm text-gray-700 rounded-full p-2 hover:bg-white/80 transition"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+            <div className="absolute bottom-2 left-0 w-full flex justify-center gap-2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-3 h-3 rounded-full ${
+                    index === currentImageIndex ? "bg-[#1f3c2e]" : "bg-gray-300"
+                  }`}
+                ></button>
+              ))}
+            </div>
+          </div>
+
+        {/* Right - Images */}
+        <motion.div
+          className="hidden md:grid grid-cols-2 gap-4"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="relative aspect-w-1 aspect-h-1">
+            <Image
+              src="/solution1.webp"
+              alt="Summary"
+              fill
+              className="rounded-xl shadow-lg object-cover"
+            />
+          </div>
+          <div className="relative aspect-w-1 aspect-h-1">
+            <Image
+              src="/legal-team.png"
+              alt="Legal Team"
+              fill
+              className="rounded-xl shadow-lg object-cover"
+            />
+          </div>
+          <div className="relative aspect-w-1 aspect-h-1">
+            <Image
+              src="/solution3.jpg"
+              alt="Compliance Made Easy"
+              fill
+              className="rounded-xl shadow-lg object-cover"
+            />
+          </div>
+          <div className="relative aspect-w-1 aspect-h-1">
+            <Image
+              src="/solution4.webp"
+              alt="Verified Help"
+              fill
+              className="rounded-xl shadow-lg object-cover"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-function FeatureItem({ title, icon }: { title: string, icon?: React.ReactNode; }) {
-  return (
-    <motion.li
-      className="flex items-start"
-      variants={slideInUp}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
-      <div className="flex-shrink-0 mr-3 mt-1">
-        {icon ? icon : <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>}
-      </div>
-      <div>
-        <p className="text-gray-700 text-base">{title}</p>
-      </div>
-    </motion.li>
   );
 }
