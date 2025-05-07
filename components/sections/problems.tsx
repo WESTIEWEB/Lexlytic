@@ -1,210 +1,178 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { Banknote, CalendarX, ChartScatter, ChevronLeft, ChevronRight, Hourglass, ShieldAlert } from "lucide-react";
-import { useEffect, useState } from "react";
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { ArrowRight, ExternalLink } from "lucide-react"
 
-const features = [
-    { icon: ChartScatter, title: "Regulations scattered across websites" },
-    { icon: Hourglass, title: "Hours spent researching simple laws" },
-    { icon: Banknote, title: "Expensive lawyer fees for basic compliance" },
-    { icon: CalendarX, title: "Unclear deadlines and costly penalties" },
-  { icon: ShieldAlert, title: "Difficulty managing rules across multiple jurisdictions" },
-];
-
-const painPoints = [
-    {
-        emoji: "📂",
-        title: "Regulations everywhere",
-        description: "Scattered rules across multiple websites. Nothing centralized. Everything confusing.",
-},
-{
+const legalProblems = [
+  {
+    id: "scattered",
+    emoji: "📂",
+    title: "Regulations Everywhere",
+    description: "Scattered rules across multiple websites. Nothing centralized. Everything confusing.",
+    image: "/mess4.jpg",
+    color: "from-red-500/20 to-orange-500/20",
+    textColor: "text-red-700",
+  },
+  {
+    id: "time",
     emoji: "⏳",
-    title: "Hours wasted",
+    title: "Hours Wasted",
     description: "You spend your time Googling laws instead of building your business.",
-},
-{
+    image: "/mess1.jpg",
+    color: "from-amber-500/20 to-yellow-500/20",
+    textColor: "text-amber-700",
+  },
+  {
+    id: "expensive",
     emoji: "💸",
-    title: "Expensive lawyers",
+    title: "Expensive Lawyers",
     description: "Even a simple compliance question can cost hundreds in legal fees.",
-},
-{
+    image: "/bills.png",
+    color: "from-emerald-500/20 to-green-500/20",
+    textColor: "text-emerald-700",
+  },
+  {
+    id: "deadlines",
     emoji: "😰",
-    title: "Deadline anxiety",
+    title: "Deadline Anxiety",
     description: "Missed dates. No reminders. Penalties and panic follow quickly.",
-},
-{
+    image: "/deadlines.jpg",
+    color: "from-blue-500/20 to-cyan-500/20",
+    textColor: "text-blue-700",
+  },
+  {
+    id: "jurisdictions",
     emoji: "🗺️",
-    title: "Cross-border mess",
+    title: "Cross-border Mess",
     description: "Every jurisdiction feels like its own puzzle with no guidebook.",
-},
-];
-
-
-const container = {
-    hidden: {},
-    visible: {
-        transition: {
-        staggerChildren: 0.2,
-    },
-},
-};
-
-const item = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-};
-
-const chaosImages = [
-    { src: "/mess1.jpg", alt: "Chaos 1" },
-    { src: "/mess2.webp", alt: "Chaos 2" },
-    { src: "/mess3.jpg", alt: "Chaos 3" },
-    { src: "/mess4.jpg", alt: "Chaos 4" },
-];
-
+    image: "/mess2.webp",
+    color: "from-purple-500/20 to-violet-500/20",
+    textColor: "text-purple-700",
+  },
+]
 
 export function BeforeLexlyticSection() {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    
-    const nextImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % chaosImages.length);
-        };
-        
-        const prevImage = () => {
-            setCurrentImageIndex((prevIndex) => (prevIndex - 1 + chaosImages.length) % chaosImages.length);
-        };
-        
-        useEffect(() => {
-        const intervalId = setInterval(() => {
-          nextImage();
-        }, 3000);
-        
-        return () => clearInterval(intervalId);
-    }, []);
-    return (
-        <section className="bg-[#fef9f6] py-20">
-      <div className="container w-full mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-        {/* Left - Text and Pain Points */}
-        <div className="space-y-8">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-[#2e2a27] text-center md:text-left"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Before Lexlytic, compliance felt like this 😵‍💫
-          </motion.h2>
+  const [activeTab, setActiveTab] = useState("scattered")
 
-          <div className="grid md:grid-cols-1 gap-6 ">
-            {painPoints.map((item, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-2xl p-6 shadow-md flex items-start gap-4 text-left"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-              >
-                <div className="text-3xl">{item.emoji}</div>
-                <div>
-                  <h4 className="text-lg font-semibold text-[#2e2a27] mb-1">{item.title}</h4>
-                  <p className="text-sm text-[#6b645f]">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+  return (
+    <section className="py-20 bg-gradient-to-b from-[#fef9f6] to-white">
+      <div className="container px-4 mx-auto">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-[#2e2a27] mb-4">
+            Before Lexlytic, legal compliance was a nightmare
+          </h2>
+          <p className="text-lg text-[#6b645f] max-w-2xl mx-auto">
+            Businesses struggle with these common legal challenges every day, wasting time and money while increasing
+            risk.
+          </p>
+        </motion.div>
 
-          {/* <motion.div
-            className="mt-6 text-center md:text-left"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Link
-              href="/explore"
-              className="inline-block bg-[#2e2a27] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[#443e3b] transition"
+        {/* Mobile View - Cards */}
+        <div className="md:hidden space-y-6">
+          {legalProblems.map((problem, index) => (
+            <motion.div
+              key={problem.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              See how Lexlytic makes it all better 💡
-            </Link>
-          </motion.div> */}
+              <Card className="overflow-hidden">
+                <div className="relative h-48 w-full">
+                  <Image src={problem.image || "/placeholder.svg"} alt={problem.title} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <span className="text-5xl">{problem.emoji}</span>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-2 text-[#2e2a27]">{problem.title}</h3>
+                  <p className="text-[#6b645f]">{problem.description}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Right - Images */}
-        <div className="relative md:hidden">
-            <div className="relative w-full aspect-w-1 aspect-h-1 rounded-xl shadow-md overflow-hidden">
-              <Image
-                src={chaosImages[currentImageIndex].src}
-                alt={chaosImages[currentImageIndex].alt}
-                fill
-                className="object-cover transition-opacity duration-500 ease-in-out"
-                style={{ opacity: 1 }}
-              />
-            </div>
-            <button
-              onClick={prevImage}
-              className="absolute top-1/2 left-2 -translate-y-1/2 bg-white/50 backdrop-blur-sm text-gray-700 rounded-full p-2 hover:bg-white/80 transition"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute top-1/2 right-2 -translate-y-1/2 bg-white/50 backdrop-blur-sm text-gray-700 rounded-full p-2 hover:bg-white/80 transition"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-            <div className="absolute bottom-2 left-0 w-full flex justify-center gap-2">
-              {chaosImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-3 h-3 rounded-full ${
-                    index === currentImageIndex ? "bg-[#2e2a27]" : "bg-gray-300"
-                  }`}
-                ></button>
+        {/* Desktop View - Interactive Tabs */}
+        <div className="hidden md:block">
+          <Tabs defaultValue="scattered" value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="grid grid-cols-5 h-auto p-1 bg-muted/50 rounded-xl mb-8">
+              {legalProblems.map((problem) => (
+                <TabsTrigger
+                  key={problem.id}
+                  value={problem.id}
+                  className="data-[state=active]:shadow-md py-3 flex flex-col gap-1 items-center"
+                >
+                  <span className="text-2xl">{problem.emoji}</span>
+                  <span className="font-medium text-sm">{problem.title}</span>
+                </TabsTrigger>
               ))}
-            </div>
-          </div>
+            </TabsList>
+
+            {legalProblems.map((problem) => (
+              <TabsContent key={problem.id} value={problem.id} className="mt-0">
+                <motion.div
+                  className="grid md:grid-cols-2 gap-8 items-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className={`rounded-2xl overflow-hidden bg-gradient-to-br ${problem.color} p-1`}>
+                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                      <Image
+                        src={problem.image || "/placeholder.svg"}
+                        alt={problem.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div className="inline-block rounded-full px-4 py-1 bg-white shadow-sm border">
+                      <span className="text-2xl mr-2">{problem.emoji}</span>
+                      <span className={`font-semibold ${problem.textColor}`}>
+                        Problem {legalProblems.findIndex((p) => p.id === problem.id) + 1} of 5
+                      </span>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-[#2e2a27]">{problem.title}</h3>
+                    <p className="text-xl text-[#6b645f]">{problem.description}</p>
+
+                    <div className="pt-4">
+                      <div className="flex items-center gap-2 text-[#6b645f]">
+                        <ExternalLink className="h-5 w-5" />
+                        <span className="text-sm">This is just one of many compliance challenges businesses face</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </TabsContent>
+            ))}
+          </Tabs>
+        </div>
+
         <motion.div
-          className="hidden md:grid grid-cols-2 gap-4"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <div className="relative aspect-w-1 aspect-h-1">
-            <Image
-              src="/mess1.jpg" // Replace with your actual image path
-              alt="Chaos 1"
-              fill
-              className="rounded-xl shadow-md object-cover"
-            />
-          </div>
-          <div className="relative aspect-w-1 aspect-h-1">
-            <Image
-              src="/mess2.webp" // Replace with your actual image path
-              alt="Chaos 2"
-              fill
-              className="rounded-xl shadow-md object-cover"
-            />
-          </div>
-          <div className="relative aspect-w-1 aspect-h-1">
-            <Image
-              src="/mess3.jpg" // Replace with your actual image path
-              alt="Chaos 3"
-              fill
-              className="rounded-xl shadow-md object-cover"
-            />
-          </div>
-          <div className="relative aspect-w-1 aspect-h-1">
-            <Image
-              src="/mess4.jpg" // Replace with your actual image path
-              alt="Chaos 4"
-              fill
-              className="rounded-xl shadow-md object-cover"
-            />
-          </div>
+          <Button size="lg" className="bg-[#2e2a27] hover:bg-[#443e3b] text-white rounded-full px-8">
+            See how Lexlytic solves these problems
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

@@ -68,7 +68,7 @@ export function RegisterInterestForm() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <InputField
               id="firstName"
               label="First Name*"
@@ -81,7 +81,7 @@ export function RegisterInterestForm() {
               error={state.errors?.lastName}
               required
             />
-          </div>
+          </div> */}
 
           <InputField
             id="email"

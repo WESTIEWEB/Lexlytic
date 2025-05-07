@@ -18,7 +18,7 @@ const josefin = Josefin_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "One Platform for Every Law—Instant Clarity, Zero Confusion",
+  title: "Lexlytic's AI, Your One Platform for Every Law—Instant Clarity, Zero Confusion",
   description: "Lexlytic's AI ingests any regulation, anywhere. See clear obligations,deadlines and risks at a glance, and connect with a vetted professional in a single click",
   generator: "v0.dev",
   icons: {

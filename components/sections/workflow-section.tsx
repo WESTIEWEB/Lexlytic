@@ -163,28 +163,28 @@ export function WorkflowSection() {
             </h2>
             <p className="text-base">
               <strong>Ground-level partners, not surface-level data</strong><br />
-              <span className="text-sm space-y-1 text-white/90">
+              <span className="text-base space-y-1 text-white/90">
                 We work hand-in-hand with respected lawyers, notaries, and regulatory advisers in each country we enter.
                 They supply the nuance behind every statute; our platform turns it into instant, actionable guidance.
               </span>
             </p>
-            <p className="text-base">
+            <div className="text-base">
               <strong>Coverage where complexity is highest</strong>
-              <ul className="list-disc list-inside ml-4 mt-2 space-y-3 text-[#4fd1c5] text-sm font-semibold mb-3" >
+              <ul className="list-disc list-inside ml-4 mt-2 space-y-3 text-[#4fd1c5] text-base font-semibold mb-3" >
                 <li>West Africa — Nigeria, Ghana, Côte d'voire, Guinea, Mali, Senegal, Togo</li>
                 <li>East Africa — Kenya, Tanzania, Rwanda, Uganda, Ethiopia, Malawi, Zambia</li>
                 <li>Southern Africa — South Africa, Botswana, Namibia, Zambia</li>
                 <li>UK + EU gateway for multinationals expanding into Africa</li>
               </ul>
-            </p>
+            </div>
             <p className="text-base">
               <strong>Trust earned, not assumed</strong><br />
-              <span className="text-sm space-y-1 text-white/90">
+              <span className="text-base space-y-1 text-white/90">
                 Relationships with a diverse range of local professionals mean real-time updates,
                 faster execution, and culturally accurate advice — before, during, and after every legislative change.
               </span>
             </p>
-            <p className="text-sm space-y-1 text-white/90">
+            <p className="text-base space-y-1 text-white/90">
               Operate in two, ten, or twenty jurisdictions? Lexlytic gives you the same certainty
               you'd expect from a single in-house counsel, scaled across the continent.
             </p>
