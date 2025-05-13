@@ -143,6 +143,7 @@ export function BeforeLexlyticSection() {
                       {/* <span className={`font-semibold ${problem.textColor}`}>
                         Problem {legalProblems.findIndex((p) => p.id === problem.id) + 1} of 5
                       </span> */}
+                      
                     </div>
 
                     <h3 className="text-3xl font-bold text-[#2e2a27]">{problem.title}</h3>
