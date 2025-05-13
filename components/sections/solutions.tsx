@@ -23,7 +23,7 @@ const lexlyticSolutions = [
     emoji: "⚡",
     title: "Clear, instant answers",
     description: "Understand your legal obligations without endless research.",
-    image: "/understand.webp",
+    image: "/clear-instance.jpg",
     color: "from-blue-500/20 to-cyan-500/20",
     textColor: "text-blue-700",
   },
@@ -144,9 +144,9 @@ export function AfterLexlyticSection() {
                   <div className="space-y-6">
                     <div className="inline-block rounded-full px-4 py-1 bg-white shadow-sm border">
                       <span className="text-2xl mr-2">{solution.emoji}</span>
-                      <span className={`font-semibold ${solution.textColor}`}>
+                      {/* <span className={`font-semibold ${solution.textColor}`}>
                         Solution {lexlyticSolutions.findIndex((s) => s.id === solution.id) + 1} of 5
-                      </span>
+                      </span> */}
                     </div>
 
                     <h3 className="text-3xl font-bold text-[#1f3c2e]">{solution.title}</h3>
