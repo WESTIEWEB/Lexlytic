@@ -68,10 +68,10 @@ export function AfterLexlyticSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1f3c2e] mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-blue-900 mb-4">
             After Lexlytic, everything feels like this 😌
           </h2>
-          <p className="text-lg text-[#4c6659] max-w-2xl mx-auto">
+          <p className="text-lg text-[#6b645f] max-w-2xl mx-auto ">
             Transform your legal compliance from a headache into a competitive advantage
           </p>
         </motion.div>
@@ -98,8 +98,8 @@ export function AfterLexlyticSection() {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-[#1f3c2e]">{solution.title}</h3>
-                  <p className="text-[#4c6659]">{solution.description}</p>
+                  <h3 className="text-3xl font-semibold text-blue-900">{solution.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{solution.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -149,7 +149,7 @@ export function AfterLexlyticSection() {
                       </span> */}
                     </div>
 
-                    <h3 className="text-3xl font-bold text-[#1f3c2e]">{solution.title}</h3>
+                    <h3 className="text-3xl font-semibold text-blue-900">{solution.title}</h3>
                     <p className="text-xl text-[#4c6659]">{solution.description}</p>
 
                     <div className="pt-4">

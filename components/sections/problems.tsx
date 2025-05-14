@@ -68,10 +68,10 @@ export function BeforeLexlyticSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#2e2a27] mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold text-blue-900 mb-4">
             Before Lexlytic, legal compliance was a nightmare
           </h2>
-          <p className="text-lg text-[#6b645f] max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto ">
             Businesses struggle with these common legal challenges every day, wasting time and money while increasing
             risk.
           </p>
@@ -94,8 +94,8 @@ export function BeforeLexlyticSection() {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-[#2e2a27]">{problem.title}</h3>
-                  <p className="text-[#6b645f]">{problem.description}</p>
+                  <h3 className="text-lg font-semibold mb-3 text-blue-900">{problem.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{problem.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -146,11 +146,11 @@ export function BeforeLexlyticSection() {
                       
                     </div>
 
-                    <h3 className="text-3xl font-bold text-[#2e2a27]">{problem.title}</h3>
-                    <p className="text-xl text-[#6b645f]">{problem.description}</p>
+                    <h3 className="text-3xl font-semibold text-blue-900">{problem.title}</h3>
+                    <p className="text-xl text-gray-600">{problem.description}</p>
 
                     <div className="pt-4">
-                      <div className="flex items-center gap-2 text-[#6b645f]">
+                      <div className="flex items-center gap-2 text-blue-600">
                         <ExternalLink className="h-5 w-5" />
                         <span className="text-sm">This is just one of many compliance challenges businesses face</span>
                       </div>
