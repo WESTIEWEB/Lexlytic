@@ -2,31 +2,48 @@
 
 import type React from "react";
 import { useState, useTransition } from "react";
-import {
-  submitInterestForm,
-  type FormState,
-} from "@/app/actions/interest-form";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 
-const initialState: FormState = {
+const initialState: {
+  errors: { _form?: string[]; fullName?: string[]; email?: string[] };
+  message: string;
+  success: boolean;
+} = {
   errors: {},
   message: "",
   success: false,
 };
 
 export function RegisterInterestForm() {
-  const [state, setState] = useState<FormState>(initialState);
+  const [state, setState] = useState(initialState);
   const [isPending, startTransition] = useTransition();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const googleFormUrl = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL!;
+
+    // Map form field names to Google Form entry IDs
+    const googleFormData = new FormData();
+    googleFormData.append("entry.234875870", formData.get("fullName") as string); // Correct "Full Name" entry ID
+    googleFormData.append("entry.93917136", formData.get("email") as string); // Replace XXXXXXX with the actual "Email" entry ID
 
     startTransition(async () => {
+      console.log(googleFormUrl)
       try {
-        const result = await submitInterestForm(state, formData);
-        setState(result);
+        const response = await fetch(googleFormUrl, {
+          method: "POST",
+          body: googleFormData,
+          mode: "no-cors", // Required for Google Forms submission
+        });
+
+        // Since 'no-cors' mode doesn't allow reading the response, assume success if no error
+        setState({
+          errors: {},
+          message: "Form submitted successfully!",
+          success: true,
+        });
       } catch (error) {
         console.error("Form submission error:", error);
         setState({
@@ -64,24 +81,16 @@ export function RegisterInterestForm() {
           {state.errors?._form && (
             <div className="bg-red-100 text-red-800 px-4 py-3 rounded-md flex items-start">
               <AlertCircle className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
-              <span>{state.errors._form}</span>
+              <span>{state.errors?._form}</span>
             </div>
           )}
 
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <InputField
-              id="firstName"
-              label="First Name*"
-              error={state.errors?.firstName}
-              required
-            />
-            <InputField
-              id="lastName"
-              label="Last Name*"
-              error={state.errors?.lastName}
-              required
-            />
-          </div> */}
+          <InputField
+            id="fullName"
+            label="Full Name*"
+            error={state.errors?.fullName}
+            required
+          />
 
           <InputField
             id="email"
@@ -90,43 +99,6 @@ export function RegisterInterestForm() {
             error={state.errors?.email}
             required
           />
-
-          <InputField id="phone" type="tel" label="Mobile phone number" />
-
-          <InputField
-            id="countries"
-            label="Countries of interest"
-            placeholder="e.g. Nigeria, South Africa, Ghana"
-          />
-
-          <TextAreaField id="help" label="How can Lexlytic help?" />
-
-          <InputField
-            id="source"
-            label="How did you hear about Lexlytic?"
-            placeholder="e.g. Google, Social Media, Colleague"
-          />
-
-          <div className="flex items-start">
-            <input
-              id="consent"
-              name="consent"
-              type="checkbox"
-              className="h-4 w-4 text-cyan-500 focus:ring-cyan-400 border-white/30 rounded mt-1"
-              required
-            />
-            <label
-              htmlFor="consent"
-              className="ml-3 text-sm text-white/80 leading-5"
-            >
-              Yes, I agree to receive other communications from Lexlytic.
-            </label>
-            {state.errors?.consent && (
-              <p className="mt-1 text-sm text-red-500">
-                {state.errors.consent[0]}
-              </p>
-            )}
-          </div>
 
           <button
             type="submit"
@@ -175,26 +147,6 @@ function InputField({
         } focus:outline-none focus:ring-2 focus:ring-cyan-400`}
       />
       {error && <p className="mt-1 text-sm text-red-500">{error[0]}</p>}
-    </div>
-  );
-}
-
-function TextAreaField({ id, label }: { id: string; label: string }) {
-  return (
-    <div>
-      <label
-        htmlFor={id}
-        className="block text-sm font-medium text-white/80 mb-1"
-      >
-        {label}
-      </label>
-      <textarea
-        id={id}
-        name={id}
-        rows={3}
-        className="w-full px-4 py-2 rounded-md bg-white/10 placeholder:text-white/50 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-        placeholder="Tell us about your needs"
-      ></textarea>
     </div>
   );
 }
