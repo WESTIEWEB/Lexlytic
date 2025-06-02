@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, ExternalLink } from "lucide-react"
+import { ArrowRight, ExternalLink, Link } from "lucide-react"
 
 const legalProblems = [
   {
@@ -169,8 +169,10 @@ export function BeforeLexlyticSection() {
           transition={{ delay: 0.5, duration: 0.5 }}
         >
           <Button size="lg" className="bg-[#2e2a27] hover:bg-[#443e3b] text-white rounded-full px-8">
-            See how Lexlytic solves these problems
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <Link href="register-interest">
+              See how Lexlytic solves these problems
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </motion.div>
       </div>

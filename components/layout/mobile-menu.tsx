@@ -183,7 +183,7 @@ export function MobileMenu({ isScrolled = false }: { isScrolled?: boolean }) {
             <div className="absolute bottom-0 w-full p-4 border-t bg-white shadow-inner">
               <div className="flex flex-col space-y-3">
                 <Link
-                  href="/contact-us"
+                  href="/register-interest"
                   className="block text-center text-gray-700 hover:text-[#102e50]"
                   onClick={() => setIsOpen(false)}
                 >

@@ -95,7 +95,7 @@ export function HeroSection() {
         transition={{ type: "spring", stiffness: 300 }}
       >
         <Link
-          href="/discover"
+          href="/register-interest"
           className="inline-flex items-center rounded-xl bg-[#4fd1c5] text-black px-6 py-3 font-medium hover:bg-gray-100 transition-colors shadow-md"
         >
           See Lexlytic In Action

@@ -59,7 +59,7 @@ export function GetStartedSection() {
             title="Contact us"
             description="Speak to your local office and learn more about Lexlytic technology, coverage and solutions."
             linkText="Contact us"
-            linkHref="/contact-us"
+            linkHref="/register-interest"
           />
         </motion.div>
       </div>

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: "Lexlytic's AI ingests any regulation, anywhere. See clear obligations,deadlines and risks at a glance, and connect with a vetted professional in a single click",
   generator: "v0.dev",
   icons: {
-    icon: "/logo.svg",
+    icon: "/icons/app-logo.png",
   },
 };
 
@@ -33,6 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${josefin.variable}`}>
+      <head>
+        <link rel="icon" href="/icons/app-logo.png" type="image/jpeg" className="rounded-[100%]"/>
+      </head>
       <body className="font-sans"
       cz-shortcut-listen="true"
       >{children}</body>

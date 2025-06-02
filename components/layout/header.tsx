@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { MobileMenu } from "@/components/layout/mobile-menu";
+import Image from "next/image";
 
 interface DropdownSection {
   title: string;
@@ -53,7 +54,7 @@ export function Header() {
         },
         {
           title: "Legal Analytics",
-          items: ["Compliance Report", "Docket Alarm Analytics"],
+          items: ["Compliance Report", "Docket Alarm Analytics"],
         },
         {
           title: "Tools",
@@ -79,13 +80,7 @@ export function Header() {
       dropdownData: [
         {
           title: "Northern Africa",
-          items: [
-            "Algeria",
-            "Egypt",
-            "Libya",
-            "Morocco",
-            "Tunisia",
-          ]
+          items: ["Algeria", "Egypt", "Libya", "Morocco", "Tunisia"],
         },
         {
           title: "Western Africa",
@@ -96,8 +91,8 @@ export function Header() {
             "Mali",
             "Nigeria",
             "Senegal",
-            "Togo"
-          ]
+            "Togo",
+          ],
         },
         {
           title: "Central Africa",
@@ -108,7 +103,7 @@ export function Header() {
             "Republic of the Congo",
             "Equatorial Guinea",
             "Gabon",
-          ]
+          ],
         },
         {
           title: "Eastern Africa",
@@ -121,21 +116,14 @@ export function Header() {
             "Tanzania",
             "Uganda",
             "Zambia",
-          ]
+          ],
         },
         {
           title: "Southern Africa",
-          items: [
-            "Botswana",
-            "Namibia",
-            "South Africa"
-          ]
-        }
-      ]
+          items: ["Botswana", "Namibia", "South Africa"],
+        },
+      ],
     },
-    
-  
-   
     {
       title: "Company",
       dropdownData: [
@@ -162,6 +150,16 @@ export function Header() {
         <div className="flex items-center">
           <Link href="/" className="mr-8">
             <div className="flex items-center space-x-2">
+              <Image
+                src="/icons/app-logo.png"
+                alt="Lexlytic Logo"
+                width={70}	
+                height={70}
+                className={`transition-colors ${
+                  isScrolled ? 'bg-gray-900' : "bg-gray-900"
+                }`}
+              />
+              {/* Optionally keep the text if desired */}
               <div
                 className={`text-4xl font-extrabold tracking-tight ${
                   isScrolled ? "text-[#102E50]" : "text-white"
@@ -189,7 +187,7 @@ export function Header() {
 
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            href="/contact-us"
+            href="/register-interest"
             className={`text-sm font-medium ${
               isScrolled
                 ? "text-gray-700 hover:text-blue-600"
@@ -202,7 +200,7 @@ export function Header() {
             href="/register-interest"
             className="bg-[#102E50] border border-2-[#102E50] !rounded-xl hover:bg-blue-600 text-white px-4 py-3 rounded-md text-sm font-medium transition-colors"
           >
-            Register Interest
+            Register Interest
           </Link>
         </div>
 
@@ -225,7 +223,7 @@ function NavItem({
   isScrolled: boolean;
   activeDropdown: string | null;
   setActiveDropdown: (val: string | null) => void;
-  dropdownRef: React.RefObject<HTMLDivElement | null>; // Update ref type here
+  dropdownRef: React.RefObject<HTMLDivElement | null>;
 }) {
   const isActive = activeDropdown === title;
   const toggleDropdown = () => setActiveDropdown(isActive ? null : title);

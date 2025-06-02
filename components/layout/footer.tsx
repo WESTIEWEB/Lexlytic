@@ -23,7 +23,7 @@ export function Footer() {
               <FooterLink href="/privacy" text="Privacy Policy" />
               <FooterLink href="/press" text="Press" />
               {/* <FooterLink href="/fastcase" text="Fastcase 50" /> */}
-              <FooterLink href="/contact" text="Contact Us" />
+              <FooterLink href="/register-interest" text="Contact Us" />
             </ul>
           </div>
 
@@ -62,21 +62,21 @@ export function Footer() {
           </p>
           <div className="flex space-x-4">
             <Link
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/1FCPdVAvmE/?mibextid=wwXIfr"
               className="text-blue-200 hover:text-white transition-colors"
             >
               <Facebook className="h-5 w-5" />
               <span className="sr-only">Facebook</span>
             </Link>
             <Link
-              href="https://twitter.com"
+              href="https://x.com/lexlytic?s=21&t=HNIIa2QyfBSMWj-iGc13ew"
               className="text-blue-200 hover:text-white transition-colors"
             >
               <Twitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
             </Link>
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/lexlytic/"
               className="text-blue-200 hover:text-white transition-colors"
             >
               <Linkedin className="h-5 w-5" />
